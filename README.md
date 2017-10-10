@@ -17,7 +17,7 @@ Egy konzol és PC-s játékokat árusító cég online webáruháza. A weboldalo
 - A főoldalon megjelenek a legújabb illetve a legkeresettebb játékok is
 - Lehetőség van bankkártyás és utánvételes fizetésre is
 
-##Nem funkcionális követelmények
+## Nem funkcionális követelmények
 - A weboldalt a felhasználó tetszőleges böngészőből tudja elérni
 - Számítógépen, mobiltelefonon és tableten is megfelelően jelenik meg
 - A regisztrált felhasználók adatait más felhasználó nem érheti el
@@ -30,7 +30,7 @@ Egy konzol és PC-s játékokat árusító cég online webáruháza. A weboldalo
 	- Angular JS
 	- Typescript
 	
-##Szerepkörök
+## Szerepkörök
 - Adminisztrátor: frissítheti az adatbázis illetve felhasználókat törölhet a rendszerből, megtekintheti a a felhasználók által leadott rendeléseket és moderálhatja a termék értékeléseket
 - Felhasználó: rendeléseket adhat le és nyomon követheti azokat, értkelheti a terméket
 - Látogató: nem regisztrált, de ugyanúgy rendelhet, viszont értékelést nem írhat
