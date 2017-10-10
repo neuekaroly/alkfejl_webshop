@@ -34,3 +34,7 @@ Egy konzol és PC-s játékokat árusító cég online webáruháza. A weboldalo
 - Adminisztrátor: frissítheti az adatbázis illetve felhasználókat törölhet a rendszerből, megtekintheti a a felhasználók által leadott rendeléseket és moderálhatja a termék értékeléseket
 - Felhasználó: rendeléseket adhat le és nyomon követheti azokat, értkelheti a terméket
 - Látogató: nem regisztrált, de ugyanúgy rendelhet, viszont értékelést nem írhat
+
+## Adatbázis terv
+
+![Database](docs/pictures/dbuml.jpg)
