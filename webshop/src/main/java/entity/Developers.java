@@ -18,7 +18,7 @@ import java.util.List;
 @EqualsAndHashCode(callSuper = true)
 public class Developers extends BaseEntity{
     @Column(nullable = false)
-    private String DeveloperName;
+    private String developerName;
 
     @Column(nullable = false)
     private String country;
