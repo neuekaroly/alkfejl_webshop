@@ -15,16 +15,16 @@ import java.util.List;
 @EqualsAndHashCode(callSuper = true)
 public class Orders extends BaseEntity{
     @Column(nullable = false)
-    private String orderdate;
+    private String orderDate;
 
     @Column(nullable = false)
-    private int orderprice;
+    private int orderPrice;
 
     @Column(nullable = false)
-    private boolean paymentbycreditcard;
+    private boolean paymentByCreditCard;
 
     @Column(nullable = false)
-    private boolean isdone;
+    private boolean isDone;
 
     @JoinColumn
     @ManyToOne(targetEntity = User.class)
@@ -32,6 +32,6 @@ public class Orders extends BaseEntity{
 
     @OneToMany(targetEntity = OrderDetails.class,
             cascade = CascadeType.ALL)
-    private List<OrderDetails> orderdetails;
+    private List<OrderDetails> orderDetails;
 
 }

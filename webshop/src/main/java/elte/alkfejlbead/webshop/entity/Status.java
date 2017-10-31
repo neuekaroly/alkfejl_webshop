@@ -15,15 +15,15 @@ import javax.persistence.*;
 public class Status extends BaseEntity{
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
-    private OrderStatus orderstatus;
+    private OrderStatus orderStatus;
 
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
-    private ShippingStatus shippingstatus;
+    private ShippingStatus shippingStatus;
 
     @JoinColumn
     @OneToOne(targetEntity = OrderDetails.class)
-    private OrderDetails orderdetail;
+    private OrderDetails orderDetail;
 
     public enum OrderStatus {
         DRAFT, COMPLETED, PROCESSING

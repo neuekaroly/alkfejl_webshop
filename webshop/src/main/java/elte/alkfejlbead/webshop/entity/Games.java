@@ -15,7 +15,7 @@ import java.util.List;
 @EqualsAndHashCode(callSuper = true)
 public class Games extends BaseEntity {
     @Column(nullable = false)
-    private String gamename;
+    private String gameName;
 
     @Column(nullable = false)
     private String releaseDate;

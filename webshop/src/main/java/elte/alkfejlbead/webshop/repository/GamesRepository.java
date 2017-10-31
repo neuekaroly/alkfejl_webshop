@@ -9,5 +9,6 @@ import java.util.Optional;
 
 @Repository
 public interface GamesRepository extends CrudRepository<Games, Long> {
-
+    List<Games> findAllByGameName(String gameName);
+    List<Games> findAllByCategory(Games.Categories category);
 }
