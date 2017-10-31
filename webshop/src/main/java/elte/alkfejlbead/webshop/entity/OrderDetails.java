@@ -1,4 +1,4 @@
-package entity;
+package elte.alkfejlbead.webshop.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -14,7 +14,7 @@ import javax.persistence.*;
 @EqualsAndHashCode(callSuper = true)
 public class OrderDetails extends BaseEntity{
     @Column(nullable = false)
-    private int Quantity;
+    private int quantity;
 
     @JoinColumn
     @ManyToOne(targetEntity = Games.class)

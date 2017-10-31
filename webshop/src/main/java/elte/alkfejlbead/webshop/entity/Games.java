@@ -1,4 +1,4 @@
-package entity;
+package elte.alkfejlbead.webshop.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -15,7 +15,7 @@ import java.util.List;
 @EqualsAndHashCode(callSuper = true)
 public class Games extends BaseEntity {
     @Column(nullable = false)
-    private String gameName;
+    private String gamename;
 
     @Column(nullable = false)
     private String releaseDate;
@@ -45,7 +45,7 @@ public class Games extends BaseEntity {
 
     @OneToMany(targetEntity = OrderDetails.class,
             cascade = CascadeType.ALL)
-    private List<OrderDetails> orderDetails;
+    private List<OrderDetails> orderdetails;
 
     public enum Categories {
         SPORT, ACTION, FPS, TPS, SIMULATOR, MMORPG, ARCADE, ADVENTURE

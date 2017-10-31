@@ -1,4 +1,4 @@
-package entity;
+package elte.alkfejlbead.webshop.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -18,7 +18,7 @@ import java.util.List;
 @EqualsAndHashCode(callSuper = true)
 public class Developers extends BaseEntity{
     @Column(nullable = false)
-    private String developerName;
+    private String developername;
 
     @Column(nullable = false)
     private String country;

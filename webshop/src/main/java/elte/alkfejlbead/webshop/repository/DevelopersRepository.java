@@ -1,7 +1,7 @@
-package repository;
+package elte.alkfejlbead.webshop.repository;
 
+import elte.alkfejlbead.webshop.entity.OrderDetails;
 import org.springframework.data.repository.CrudRepository;
-import entity.OrderDetails;
 import org.springframework.stereotype.Repository;
 
 @Repository

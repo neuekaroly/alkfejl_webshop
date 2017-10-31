@@ -1,4 +1,4 @@
-package com.example.webshop;
+package elte.alkfejlbead.webshop;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

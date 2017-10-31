@@ -1,4 +1,4 @@
-package entity;
+package elte.alkfejlbead.webshop.entity;
 
 import javax.persistence.*;
 
@@ -7,14 +7,13 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
-
 @Entity
 @Data
+//@Table(name="user")
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-public class Users extends BaseEntity{
+public class User extends BaseEntity {
     @Column(unique = true, nullable = false)
     private String username;
 
@@ -22,13 +21,13 @@ public class Users extends BaseEntity{
     private String password;
 
     @Column(nullable = false)
-    private String firstName;
+    private String firstname;
 
     @Column(nullable = false)
-    private String lastName;
+    private String lastname;
 
     @Column(nullable = false)
-    private String emailAddress;
+    private String emailaddress;
 
     @Column(nullable = false)
     private String address;
@@ -37,12 +36,7 @@ public class Users extends BaseEntity{
     @Enumerated(EnumType.STRING)
     private Role role;
 
-    @OneToMany(targetEntity = Orders.class,
-            cascade = CascadeType.ALL)
-    private List<Orders> orders;
-
     public enum Role {
         GUEST, USER, ADMIN
     }
 }
-

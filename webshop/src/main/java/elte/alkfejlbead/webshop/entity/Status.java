@@ -1,4 +1,4 @@
-package entity;
+package elte.alkfejlbead.webshop.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -15,15 +15,15 @@ import javax.persistence.*;
 public class Status extends BaseEntity{
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
-    private OrderStatus orderStatus;
+    private OrderStatus orderstatus;
 
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
-    private ShippingStatus shippingStatus;
+    private ShippingStatus shippingstatus;
 
     @JoinColumn
     @OneToOne(targetEntity = OrderDetails.class)
-    private OrderDetails orderDetail;
+    private OrderDetails orderdetail;
 
     public enum OrderStatus {
         DRAFT, COMPLETED, PROCESSING

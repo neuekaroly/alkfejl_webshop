@@ -1,4 +1,4 @@
-package entity;
+package elte.alkfejlbead.webshop.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -15,23 +15,23 @@ import java.util.List;
 @EqualsAndHashCode(callSuper = true)
 public class Orders extends BaseEntity{
     @Column(nullable = false)
-    private String orderDate;
+    private String orderdate;
 
     @Column(nullable = false)
-    private int orderPrice;
+    private int orderprice;
 
     @Column(nullable = false)
-    private boolean paymentByCreditCard;
+    private boolean paymentbycreditcard;
 
     @Column(nullable = false)
-    private boolean isDone;
+    private boolean isdone;
 
     @JoinColumn
-    @ManyToOne(targetEntity = Users.class)
-    private Users user;
+    @ManyToOne(targetEntity = User.class)
+    private User user;
 
     @OneToMany(targetEntity = OrderDetails.class,
             cascade = CascadeType.ALL)
-    private List<OrderDetails> orderDetails;
+    private List<OrderDetails> orderdetails;
 
 }
