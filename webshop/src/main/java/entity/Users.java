@@ -41,7 +41,6 @@ public class Users extends BaseEntity{
             cascade = CascadeType.ALL)
     private List<Orders> orders;
 
-
     public enum Role {
         GUEST, USER, ADMIN
     }
