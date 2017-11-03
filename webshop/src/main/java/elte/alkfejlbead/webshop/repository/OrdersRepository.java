@@ -9,6 +9,8 @@ import java.util.List;
 @Repository
 public interface OrdersRepository extends CrudRepository<Orders, Long>{
     List<Orders> findAllByIsDone(boolean isDone);
+
     List<Orders> findAllByPaymentByCreditCard(boolean paymentByCreditCard);
+
     List<Orders> findAllByOrderDate(String orderDate);
 }
