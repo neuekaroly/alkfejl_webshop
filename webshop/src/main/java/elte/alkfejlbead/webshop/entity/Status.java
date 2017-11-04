@@ -22,8 +22,8 @@ public class Status extends BaseEntity{
     private ShippingStatus shippingStatus;
 
     @JoinColumn
-    @OneToOne(targetEntity = OrderDetails.class)
-    private OrderDetails orderDetail;
+    @OneToOne(targetEntity = Order.class)
+    private Order order;
 
     public enum OrderStatus {
         DRAFT, COMPLETED, PROCESSING

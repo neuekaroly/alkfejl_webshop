@@ -6,6 +6,7 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -14,9 +15,9 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-public class Order extends BaseEntity{
+public class Order extends BaseEntity {
     @Column(nullable = false)
-    private String orderDate;
+    private Date orderDate;
 
     @Column(nullable = false)
     private int orderPrice;
@@ -31,8 +32,12 @@ public class Order extends BaseEntity{
     @ManyToOne(targetEntity = User.class)
     private User user;
 
-    @OneToMany(targetEntity = OrderDetails.class,
+    @OneToMany(targetEntity = OrderItem.class,
             cascade = CascadeType.ALL)
-    private List<OrderDetails> orderDetails;
+    private List<OrderItem> orderItems;
+
+    @JoinColumn
+    @OneToOne(targetEntity = Status.class)
+    private Status status;
 
 }
