@@ -4,9 +4,7 @@ import elte.alkfejlbead.webshop.model.api.request.NewOrderDTO;
 import elte.alkfejlbead.webshop.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/orders")
@@ -23,4 +21,8 @@ public class OrderController {
         orderService.addNewOrder(newOrder);
     }
 
+    @DeleteMapping("/{orderId}")
+    public void deleteOrder(@PathVariable int orderId) {
+        orderService.deleteOrder(orderId);
+    }
 }

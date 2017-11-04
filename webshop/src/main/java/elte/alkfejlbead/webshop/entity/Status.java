@@ -13,13 +13,14 @@ import javax.persistence.*;
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 public class Status extends BaseEntity{
-    @Column(nullable = false)
-    @Enumerated(EnumType.STRING)
-    private OrderStatus orderStatus;
 
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
-    private ShippingStatus shippingStatus;
+    private OrderStatus orderStatus = OrderStatus.DRAFT;
+
+    @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
+    private ShippingStatus shippingStatus = ShippingStatus.NOTYETSHIPPED;
 
     @JoinColumn
     @OneToOne(targetEntity = Order.class)

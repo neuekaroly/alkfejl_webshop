@@ -7,7 +7,7 @@ import org.springframework.data.repository.CrudRepository;
 import java.util.List;
 
 @Repository
-public interface OrderRepository extends CrudRepository<Order, Long>{
+public interface OrderRepository extends CrudRepository<Order, Integer>{
     List<Order> findAllByIsDone(boolean isDone);
 
     List<Order> findAllByPaymentByCreditCard(boolean paymentByCreditCard);

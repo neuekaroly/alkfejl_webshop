@@ -17,7 +17,7 @@ public class OrderItem extends BaseEntity{
     private int quantity;
 
     @JoinColumn
-    @ManyToOne(targetEntity = Game.class)
+    @ManyToOne(targetEntity = Game.class, cascade = CascadeType.ALL)
     private Game game;
 
     @JoinColumn

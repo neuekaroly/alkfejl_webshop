@@ -44,10 +44,6 @@ public class Game extends BaseEntity {
     @ManyToOne(targetEntity = Developer.class)
     private Developer developer;
 
-    @OneToMany(targetEntity = OrderItem.class,
-            cascade = CascadeType.ALL)
-    private List<OrderItem> orderdetails;
-
     public enum Categories {
         SPORT, ACTION, FPS, TPS, SIMULATOR, MMORPG, ARCADE, ADVENTURE
     }
