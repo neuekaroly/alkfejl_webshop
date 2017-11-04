@@ -9,11 +9,12 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
+@Table(name = "Orders")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-public class Orders extends BaseEntity{
+public class Order extends BaseEntity{
     @Column(nullable = false)
     private String orderDate;
 

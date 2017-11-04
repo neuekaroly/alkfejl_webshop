@@ -9,11 +9,12 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
+@Table(name = "Games")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-public class Games extends BaseEntity {
+public class Game extends BaseEntity {
     @Column(nullable = false)
     private String gameName;
 
@@ -40,8 +41,8 @@ public class Games extends BaseEntity {
     private String picture;
 
     @JoinColumn
-    @ManyToOne(targetEntity = Developers.class)
-    private Developers developer;
+    @ManyToOne(targetEntity = Developer.class)
+    private Developer developer;
 
     @OneToMany(targetEntity = OrderDetails.class,
             cascade = CascadeType.ALL)

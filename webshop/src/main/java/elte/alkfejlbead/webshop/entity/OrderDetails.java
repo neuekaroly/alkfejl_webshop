@@ -17,14 +17,14 @@ public class OrderDetails extends BaseEntity{
     private int quantity;
 
     @JoinColumn
-    @ManyToOne(targetEntity = Games.class)
-    private Games game;
+    @ManyToOne(targetEntity = Game.class)
+    private Game game;
 
     @JoinColumn
     @OneToOne(targetEntity = Status.class)
     private Status status;
 
     @JoinColumn
-    @ManyToOne(targetEntity = Orders.class)
-    private Orders order;
+    @ManyToOne(targetEntity = Order.class)
+    private Order order;
 }
