@@ -33,6 +33,9 @@ public class User extends BaseEntity {
     private String address;
 
     @Column(nullable = false)
+    private String token;
+
+    @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private Role role;
 

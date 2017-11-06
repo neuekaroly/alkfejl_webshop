@@ -1,13 +1,13 @@
 package elte.alkfejlbead.webshop.controller;
 
 import elte.alkfejlbead.webshop.entity.User;
+import elte.alkfejlbead.webshop.model.api.response.Token;
 import elte.alkfejlbead.webshop.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-@Controller
+@RestController
 @RequestMapping("/users")
 public class UserController {
     @Autowired
@@ -34,19 +34,12 @@ public class UserController {
         return "login";
     }
 
-    @GetMapping("/register")
-    public String register(Model model) {
-        model.addAttribute("user", new User());
-        return "register";
-    }
-
     @PostMapping("/register")
-    public String register(@ModelAttribute User user) {
-        userService.register(user);
-        return redirectToGreeting(user);
+    public Token register(@RequestBody User user) {
+       return userService.register(user);
     }
 
     private String redirectToGreeting(@ModelAttribute User user) {
-        return "redirect:/user/greet?name=" + user.getUsername();
+        return "redirect:/users/greet?name=" + user.getUsername();
     }
 }

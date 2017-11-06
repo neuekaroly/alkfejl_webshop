@@ -1,1 +1,0 @@
-insert into user (id,username,password,firstname,lastname,emailaddress,address,role) values (11,'hadi','asd','last_name', 'first','mail','address','ADMIN')
