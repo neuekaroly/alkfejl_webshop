@@ -20,7 +20,7 @@ public class DeveloperController {
     }
 
     //@Role(User.Role.ADMIN)
-    @DeleteMapping("/{developerid}")
+    @DeleteMapping("/{developerId}")
     public void deleteDeveloper(@PathVariable int developerId) {
         developerService.deleteDeveloper(developerId);
     }

@@ -1,5 +1,6 @@
 package elte.alkfejlbead.webshop.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -22,10 +23,6 @@ public class Game extends BaseEntity {
     private String releaseDate;
 
     @Column(nullable = false)
-    @Enumerated(EnumType.STRING)
-    private Categories category;
-
-    @Column(nullable = false)
     private String description;
 
     @Column(nullable = false)
@@ -44,7 +41,7 @@ public class Game extends BaseEntity {
     @ManyToOne(targetEntity = Developer.class)
     private Developer developer;
 
-    public enum Categories {
-        SPORT, ACTION, FPS, TPS, SIMULATOR, MMORPG, ARCADE, ADVENTURE
-    }
+    @JoinColumn
+    @ManyToMany(targetEntity = Category.class)
+    List<Category> categories;
 }

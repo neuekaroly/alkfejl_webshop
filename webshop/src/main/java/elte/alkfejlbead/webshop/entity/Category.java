@@ -1,5 +1,6 @@
 package elte.alkfejlbead.webshop.entity;
 
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -10,20 +11,21 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "Developers")
+@Table(name = "Categories")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-public class Developer extends BaseEntity{
-    @Column(nullable = false)
-    private String developername;
+public class Category extends BaseEntity {
 
     @Column(nullable = false)
-    private String country;
+    private String categoryName;
+
+    @Column(nullable = false)
+    private boolean aboveEighteen;
 
     @JsonIgnore
-    @OneToMany(targetEntity = Game.class,
-            cascade = CascadeType.ALL)
-    private List<Game> games;
+    @JoinColumn
+    @ManyToMany(targetEntity = Game.class)
+    List<Game> games;
 }
