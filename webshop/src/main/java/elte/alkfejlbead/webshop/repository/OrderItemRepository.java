@@ -5,5 +5,5 @@ import elte.alkfejlbead.webshop.entity.OrderItem;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface OrderDetailsRepository extends CrudRepository<OrderItem, Long> {
+public interface OrderItemRepository extends CrudRepository<OrderItem, Integer> {
 }
