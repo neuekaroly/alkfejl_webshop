@@ -26,5 +26,6 @@ public class CategoryService {
         Category updatedCategory = categoryRepository.findOne(category.getId());
         updatedCategory.setAboveEighteen(category.isAboveEighteen());
         updatedCategory.setCategoryName(category.getCategoryName());
+        categoryRepository.save(updatedCategory);
     }
 }

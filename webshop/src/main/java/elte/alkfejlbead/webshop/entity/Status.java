@@ -12,7 +12,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-public class Status extends BaseEntity{
+public class Status extends BaseEntity {
 
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
