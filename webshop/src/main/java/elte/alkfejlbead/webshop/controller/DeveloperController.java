@@ -7,26 +7,34 @@ import elte.alkfejlbead.webshop.service.DeveloperService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+
 @RestController
 @RequestMapping("/developers")
 public class DeveloperController {
-    @Autowired
+
     private DeveloperService developerService;
 
-   // @Role(User.Role.ADMIN)
+    @Autowired
+    public DeveloperController(DeveloperService developerService) {
+        this.developerService = developerService;
+    }
+
+    @Role(User.Role.ADMIN)
     @PostMapping("")
-    public Developer addDeveloper(@RequestBody Developer developer) {
+    public Developer addDeveloper(HttpServletRequest request, @RequestBody Developer developer) {
         return developerService.addNewDeveloper(developer);
     }
 
-    //@Role(User.Role.ADMIN)
+    @Role(User.Role.ADMIN)
     @DeleteMapping("/{developerId}")
-    public void deleteDeveloper(@PathVariable int developerId) {
+    public void deleteDeveloper(HttpServletRequest request, @PathVariable int developerId) {
         developerService.deleteDeveloper(developerId);
     }
 
+    @Role(User.Role.ADMIN)
     @PatchMapping("/update")
-    public void updateDeveloper(@RequestBody Developer developer) {
+    public void updateDeveloper(HttpServletRequest request, @RequestBody Developer developer) {
         developerService.updateDeveloper(developer);
     }
 

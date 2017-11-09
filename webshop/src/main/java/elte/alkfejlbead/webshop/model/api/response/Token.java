@@ -8,5 +8,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 public class Token {
+    public static final String TOKEN = "X-WEBSHOP-TOKEN";
     private String token;
 }

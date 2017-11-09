@@ -1,11 +1,14 @@
 package elte.alkfejlbead.webshop.service;
 
+import com.fasterxml.jackson.annotation.JsonRawValue;
 import elte.alkfejlbead.webshop.entity.User;
 import elte.alkfejlbead.webshop.model.api.response.Token;
 import elte.alkfejlbead.webshop.repository.UserRepository;
 import elte.alkfejlbead.webshop.service.Exceptions.UserNotValidException;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCrypt;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.context.annotation.SessionScope;
 
@@ -18,28 +21,35 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
-    private User user;
-
-    public User login(User user) throws UserNotValidException {
-        if (isValid(user)) {
-            return this.user = userRepository.findByUsername(user.getUsername()).get();
+    public Token login(User user) throws UserNotValidException {
+        User dbUser = userRepository.findByUsernameAndPassword(user.getUsername(), user.getPassword());
+        if(dbUser == null) {
+            throw new UserNotValidException();
         }
-        throw new UserNotValidException();
+        return new Token(dbUser.getToken());
     }
 
-    public Token register(User user) {
+    public void register(User user) {
         user.setRole(User.Role.USER);
         user.setToken(UUID.randomUUID().toString());
-        this.user = userRepository.save(user);
-        return new Token(user.getToken());
+        user.setPassword(new BCryptPasswordEncoder().encode(user.getPassword()));
+        userRepository.save(user);
     }
 
-    public boolean isValid(User user) {
-        return userRepository.findByUsernameAndPassword(user.getUsername(), user.getPassword()).isPresent();
+    public void setCart(String cart, String token) throws UserNotValidException {
+        User user = userRepository.findByToken(token);
+        if (user == null) {
+            throw new UserNotValidException();
+        }
+        user.setCart(cart);
     }
 
-    public boolean isLoggedIn() {
-        return user != null;
+    public String getCart(String token) throws UserNotValidException {
+        User user = userRepository.findByToken(token);
+        if (user == null) {
+            throw new UserNotValidException();
+        }
+        return user.getCart();
     }
 
 }

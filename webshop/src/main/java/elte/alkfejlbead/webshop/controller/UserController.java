@@ -1,45 +1,47 @@
 package elte.alkfejlbead.webshop.controller;
 
+import elte.alkfejlbead.webshop.annotation.Role;
 import elte.alkfejlbead.webshop.entity.User;
 import elte.alkfejlbead.webshop.model.api.response.Token;
+import elte.alkfejlbead.webshop.service.Exceptions.UserNotValidException;
 import elte.alkfejlbead.webshop.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletRequest;
 
 @RestController
 @RequestMapping("/users")
 public class UserController {
-    @Autowired
+
     private UserService userService;
 
-    @GetMapping("/greet")
-    public String greeting(@RequestParam(value = "name", required = false, defaultValue = "World") String name, Model model) {
-        model.addAttribute("name", name);
-        return "greeting";
+    @Autowired
+    public UserController(UserService userService) {
+        this.userService = userService;
     }
 
-    @GetMapping("/login")
-    public String login(Model model) {
-        model.addAttribute(new User());
-        return "login";
-    }
-
+    @Role()
     @PostMapping("/login")
-    public String login(@ModelAttribute User user, Model model) {
-        if (userService.isValid(user)) {
-            return redirectToGreeting(user);
-        }
-        model.addAttribute("loginFailed", true);
-        return "login";
+    public Token login(HttpServletRequest request, @RequestBody User user) throws UserNotValidException {
+       return userService.login(user);
     }
 
+    @Role()
     @PostMapping("/register")
-    public Token register(@RequestBody User user) {
-       return userService.register(user);
+    public void register(HttpServletRequest request, @RequestBody User user) {
+       userService.register(user);
     }
 
-    private String redirectToGreeting(@ModelAttribute User user) {
-        return "redirect:/users/greet?name=" + user.getUsername();
+    @Role(User.Role.USER)
+    @PostMapping("/cart")
+    public void addCart(HttpServletRequest request, @RequestBody String cart) throws UserNotValidException {
+        userService.setCart(cart,request.getHeader(Token.TOKEN));
+    }
+
+    @Role(User.Role.USER)
+    @GetMapping("/cart")
+    public String getCart(HttpServletRequest request) throws UserNotValidException {
+       return userService.getCart(request.getHeader(Token.TOKEN));
     }
 }
