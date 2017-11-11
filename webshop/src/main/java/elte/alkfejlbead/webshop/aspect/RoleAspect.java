@@ -31,7 +31,7 @@ public class RoleAspect {
 
 
     @Around("within (elte.alkfejlbead.webshop.controller..*) && @annotation(elte.alkfejlbead.webshop.annotation.Role) && args(request,..)")
-    public void checkToken(ProceedingJoinPoint call, HttpServletRequest request) throws Throwable {
+    public Object checkToken(ProceedingJoinPoint call, HttpServletRequest request) throws Throwable {
         MethodSignature signature = (MethodSignature) call.getSignature();
         Method method = signature.getMethod();
 
@@ -54,5 +54,7 @@ public class RoleAspect {
         if (strongest != null && userRoleNum < strongest.ordinal()) {
            throw new Exception("You have no rights to execute that command!");
         }
+
+        return call.proceed();
     }
 }

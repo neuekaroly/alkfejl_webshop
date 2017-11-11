@@ -11,8 +11,6 @@ import java.util.Optional;
 
 @Repository
 public interface DeveloperRepository extends CrudRepository<Developer, Integer> {
-    Optional<Developer> findByDevelopername(Developer developer);
-
     @Query("select d from Developer d, IN (d.games) AS g where g.id =:id")
     Optional<Developer> findByGame(@Param("id") Integer id);
 }

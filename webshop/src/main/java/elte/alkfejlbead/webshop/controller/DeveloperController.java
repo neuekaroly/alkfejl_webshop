@@ -37,7 +37,4 @@ public class DeveloperController {
     public void updateDeveloper(HttpServletRequest request, @RequestBody Developer developer) {
         developerService.updateDeveloper(developer);
     }
-
-    //@PostMapping("/{developerid}/games/{gameid}")
-
 }

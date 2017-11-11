@@ -24,7 +24,7 @@ public class DeveloperService {
 
     public void updateDeveloper(Developer developer) {
        Developer updatedDeveloper = developerRepository.findOne(developer.getId());
-       updatedDeveloper.setDevelopername(developer.getDevelopername());
+       updatedDeveloper.setDeveloperName(developer.getDeveloperName());
        updatedDeveloper.setCountry(developer.getCountry());
        updatedDeveloper.setGames(developer.getGames());
        developerRepository.save(updatedDeveloper);
