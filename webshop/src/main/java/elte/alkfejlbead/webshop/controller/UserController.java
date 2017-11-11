@@ -44,4 +44,10 @@ public class UserController {
     public String getCart(HttpServletRequest request) throws UserNotValidException {
        return userService.getCart(request.getHeader(Token.TOKEN));
     }
+
+    @Role(User.Role.ADMIN)
+    @DeleteMapping("/{userId}")
+    public void deleteUser(@PathVariable Integer userId) {
+        userService.deleteUser(userId);
+    }
 }

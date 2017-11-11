@@ -52,4 +52,8 @@ public class UserService {
         return user.getCart();
     }
 
+    public void deleteUser(int useId) {
+        userRepository.delete(useId);
+    }
+
 }
