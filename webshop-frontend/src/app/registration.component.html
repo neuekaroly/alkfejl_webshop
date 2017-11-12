@@ -1,0 +1,24 @@
+<div class="container">
+    <form #registrationForm="ngForm" (ngSubmit)="register()">
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" class="form-control" name="username" [(ngModel)]="user.username" required />
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" name="password" [(ngModel)]="user.password" required />
+        </div>
+
+        <button type="submit" class="btn btn-success" [disabled]="!registrationForm.valid">Register me plsplsplsp</button>
+        <button type="button" class="btn btn-info" (click)="goToLogin()">Go to login</button>
+    </form>
+
+    <select class="form-control" (change)="selectname3($event)" #usernameselect>
+        <option *ngFor="let u of userList" [value]="u.username" >{{u.username}}</option>
+    </select>
+
+    {{selectedUserName}}
+
+    <div *ngIf="usernameselect.value == 'name3'" class="alert alert-info">Valami szöveg, ha a selected user a name3 nevű</div>
+    
+</div>

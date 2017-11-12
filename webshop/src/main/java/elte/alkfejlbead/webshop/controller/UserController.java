@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 
 @RestController
 @RequestMapping("/users")
+@CrossOrigin("*")
 public class UserController {
 
     private UserService userService;
