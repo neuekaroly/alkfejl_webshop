@@ -3,14 +3,17 @@ package elte.alkfejlbead.webshop.controller;
 import elte.alkfejlbead.webshop.annotation.Role;
 import elte.alkfejlbead.webshop.entity.Category;
 import elte.alkfejlbead.webshop.entity.User;
+import elte.alkfejlbead.webshop.model.api.request.ListDTO;
 import elte.alkfejlbead.webshop.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 @RestController
 @RequestMapping("/categories")
+@CrossOrigin("*")
 public class CategoryController {
 
     private CategoryService categoryService;
@@ -36,5 +39,11 @@ public class CategoryController {
     @PatchMapping("/update")
     public void updateCategory(HttpServletRequest request, @RequestBody Category category) {
         categoryService.updateCategory(category);
+    }
+
+    @Role(User.Role.USER)
+    @GetMapping("")
+    public ListDTO<Category> getCategories() {
+        return categoryService.getCategories();
     }
 }

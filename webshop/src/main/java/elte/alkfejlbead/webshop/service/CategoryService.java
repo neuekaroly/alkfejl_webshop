@@ -1,9 +1,12 @@
 package elte.alkfejlbead.webshop.service;
 
 import elte.alkfejlbead.webshop.entity.Category;
+import elte.alkfejlbead.webshop.model.api.request.ListDTO;
 import elte.alkfejlbead.webshop.repository.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class CategoryService {
@@ -27,5 +30,11 @@ public class CategoryService {
         updatedCategory.setAboveEighteen(category.isAboveEighteen());
         updatedCategory.setCategoryName(category.getCategoryName());
         categoryRepository.save(updatedCategory);
+    }
+
+    public ListDTO<Category> getCategories() {
+        ListDTO<Category> categories = new ListDTO<>();
+        categories.setItems(categoryRepository.findAll());
+        return categories;
     }
 }

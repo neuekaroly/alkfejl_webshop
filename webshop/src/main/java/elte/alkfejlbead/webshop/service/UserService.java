@@ -22,8 +22,8 @@ public class UserService {
     private UserRepository userRepository;
 
     public Token login(User user) throws UserNotValidException {
-        User dbUser = userRepository.findByUsernameAndPassword(user.getUsername(), user.getPassword());
-        if(dbUser == null) {
+        User dbUser = userRepository.findByUsername(user.getUsername());
+        if(dbUser == null || !new BCryptPasswordEncoder().matches(user.getPassword(), dbUser.getPassword())) {
             throw new UserNotValidException();
         }
         return new Token(dbUser.getToken());

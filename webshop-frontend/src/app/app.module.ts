@@ -4,15 +4,17 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 
-import { AppComponent } from './app.component';
-import { RegistrationComponent } from './registration.component';
-import { LoginComponent } from './login.component';
+import { AppComponent } from './component/app.component';
+import { RegistrationComponent } from './component/registration.component';
+import { LoginComponent } from './component/login.component';
+import { CategoryFilterComponent } from './component/categoryfilter.component';
 
 import { BackendService } from './service/backend.service';
 
 const routes: Routes = [
   { path: 'register', component: RegistrationComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'categoryfilter', component: CategoryFilterComponent },
   { path: '', redirectTo: '/register', pathMatch: 'full'}
 ]
 
@@ -20,7 +22,8 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     RegistrationComponent,
-    LoginComponent
+    LoginComponent,
+    CategoryFilterComponent
   ],
   imports: [
     BrowserModule,
