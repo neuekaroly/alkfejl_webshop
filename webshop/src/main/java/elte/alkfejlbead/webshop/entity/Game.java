@@ -1,6 +1,5 @@
 package elte.alkfejlbead.webshop.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -24,6 +23,9 @@ public class Game extends BaseEntity {
 
     @Column(nullable = false)
     private String description;
+
+    @Column(nullable = false)
+    private String platform;
 
     @Column(nullable = false)
     private int price;

@@ -38,6 +38,7 @@ public class GameService {
        updatedGame.setAmount(game.getAmount());
        updatedGame.setDescription(game.getDescription());
        updatedGame.setPicture(game.getPicture());
+       updatedGame.setPlatform(game.getPlatform());
        updatedGame.setPrice(game.getPrice());
        updatedGame.setRating(game.getRating());
        updatedGame.setReleaseDate(game.getReleaseDate());
