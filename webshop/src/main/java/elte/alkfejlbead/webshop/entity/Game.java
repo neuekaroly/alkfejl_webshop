@@ -25,7 +25,7 @@ public class Game extends BaseEntity {
     private String description;
 
     @Column(nullable = false)
-    private String platform;
+    private Platform platform;
 
     @Column(nullable = false)
     private int price;
@@ -46,4 +46,8 @@ public class Game extends BaseEntity {
     @JoinColumn
     @ManyToMany(targetEntity = Category.class)
     List<Category> categories;
+
+    public enum Platform {
+        PC,PS4,XBOXONE
+    }
 }

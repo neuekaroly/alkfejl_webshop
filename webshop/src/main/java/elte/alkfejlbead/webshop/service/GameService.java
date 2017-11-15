@@ -3,12 +3,14 @@ package elte.alkfejlbead.webshop.service;
 import elte.alkfejlbead.webshop.entity.Category;
 import elte.alkfejlbead.webshop.entity.Developer;
 import elte.alkfejlbead.webshop.entity.Game;
+import elte.alkfejlbead.webshop.model.api.request.ListDTO;
 import elte.alkfejlbead.webshop.repository.CategoryRepository;
 import elte.alkfejlbead.webshop.repository.DeveloperRepository;
 import elte.alkfejlbead.webshop.repository.GameRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Arrays;
 import java.util.List;
 
 @Service
@@ -59,5 +61,11 @@ public class GameService {
             game.getCategories().add(categoryRepository.findOne(i));
         }
         gameRepository.save(game);
+    }
+
+    public ListDTO<Game.Platform> getPlatforms() {
+        ListDTO<Game.Platform> platforms = new ListDTO<>();
+        platforms.setItems(Arrays.asList(Game.Platform.values()));
+        return platforms;
     }
 }

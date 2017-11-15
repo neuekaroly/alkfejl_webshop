@@ -51,4 +51,10 @@ public class GameController {
     public void  updateGame(HttpServletRequest request, @RequestBody Game game) {
         gameService.updateGame(game);
     }
+
+    @Role(User.Role.ADMIN)
+    @GetMapping("/platforms")
+    public ListDTO<Game.Platform> getPlatforms() {
+        return gameService.getPlatforms();
+    }
 }

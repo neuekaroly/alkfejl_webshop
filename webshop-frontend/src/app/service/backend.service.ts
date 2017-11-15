@@ -24,7 +24,7 @@ export class BackendService {
         return this.http.post('http://localhost:8080/users/login', user);
     }
 
-    getcategories(): Observable<any> {
+    getCategories(): Observable<any> {
          let headers = new Headers();
          headers.append('X-WEBSHOP-TOKEN', this.userloggedin);
          let options = new RequestOptions({headers: headers});

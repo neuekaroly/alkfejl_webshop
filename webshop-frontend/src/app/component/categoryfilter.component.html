@@ -1,1 +1,6 @@
  <button type="button" class="btn btn-info" (click)="getCategories()">Categories</button>
+ <div class="col-sm-3">
+ <ul class = "list-group">
+    <li class = "list-group-item" *ngFor="let c of categories" ><label><input class="form-check-input" type="checkbox" value=""> {{c.categoryName}}</label></li>
+ </ul>
+ </div>
