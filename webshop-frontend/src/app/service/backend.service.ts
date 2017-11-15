@@ -30,4 +30,11 @@ export class BackendService {
          let options = new RequestOptions({headers: headers});
         return this.http.get('http://localhost:8080/categories',options);
     }
+
+    getPlatforms(): Observable<any> {
+         let headers = new Headers();
+         headers.append('X-WEBSHOP-TOKEN', this.userloggedin);
+         let options = new RequestOptions({headers: headers});
+        return this.http.get('http://localhost:8080/games/platforms',options);
+    }
 }
