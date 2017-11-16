@@ -7,7 +7,7 @@ import { BackendService } from '../service/backend.service';
   templateUrl: './platformfilter.component.html'
 })
 
-export class CategoryFilterComponent {
+export class PlatformFilterComponent {
     platforms: string[];
 
     constructor(private backendService: BackendService) {}

@@ -13,6 +13,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/games")
+@CrossOrigin("*")
 public class GameController {
 
     private GameService gameService;
