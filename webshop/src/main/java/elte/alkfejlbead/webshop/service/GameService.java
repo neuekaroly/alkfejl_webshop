@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class GameService {
@@ -67,5 +68,9 @@ public class GameService {
         ListDTO<Game.Platform> platforms = new ListDTO<>();
         platforms.setItems(Arrays.asList(Game.Platform.values()));
         return platforms;
+    }
+
+    public Game searchByGameName(String gameName) {
+        return gameRepository.searchByGameName(gameName);
     }
 }

@@ -55,7 +55,13 @@ public class GameController {
 
     @Role(User.Role.ADMIN)
     @GetMapping("/platforms")
-    public ListDTO<Game.Platform> getPlatforms() {
+    public ListDTO<Game.Platform> getPlatforms(HttpServletRequest request) {
         return gameService.getPlatforms();
+    }
+
+    @Role()
+    @GetMapping("/search/{gameName}")
+    public Game searchByGameName(@PathVariable String gameName) {
+        return gameService.searchByGameName(gameName);
     }
 }

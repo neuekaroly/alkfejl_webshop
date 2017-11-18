@@ -10,6 +10,7 @@ import { LoginComponent } from './component/login.component';
 import { CategoryFilterComponent } from './component/categoryfilter.component';
 import { PlatformFilterComponent } from './component/platformfilter.component';
 import { PriceFilterComponent } from './component/pricefilter.component';
+import { SearchComponent } from './component/search.component';
 
 import { BackendService } from './service/backend.service';
 
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'categoryfilter', component: CategoryFilterComponent },
   { path: 'platformfilter', component: PlatformFilterComponent },
   { path: 'pricefilter', component: PriceFilterComponent },
+  { path: 'search', component: SearchComponent },
   { path: '', redirectTo: '/register', pathMatch: 'full'}
 ]
 
@@ -29,7 +31,8 @@ const routes: Routes = [
     LoginComponent,
     CategoryFilterComponent,
     PlatformFilterComponent,
-    PriceFilterComponent
+    PriceFilterComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
