@@ -61,7 +61,7 @@ public class GameController {
 
     @Role()
     @GetMapping("/search/{gameName}")
-    public Game searchByGameName(@PathVariable String gameName) {
+    public ListDTO<Game> searchByGameName(HttpServletRequest request, @PathVariable String gameName) {
         return gameService.searchByGameName(gameName);
     }
 }

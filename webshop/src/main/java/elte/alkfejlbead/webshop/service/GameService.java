@@ -70,7 +70,9 @@ public class GameService {
         return platforms;
     }
 
-    public Game searchByGameName(String gameName) {
-        return gameRepository.searchByGameName(gameName);
+    public ListDTO<Game> searchByGameName(String gameName) {
+        ListDTO<Game> games = new ListDTO<>();
+        games.setItems(gameRepository.searchByGameName(gameName));
+        return games;
     }
 }
