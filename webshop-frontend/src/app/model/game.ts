@@ -1,13 +1,15 @@
-import { Category } from '../model/category';
-
 export class Game {
     gameName: string;
     releaseDate: string;
-    descriptipn: string;
+    description: string;
     platform: string;
     price: number;
     amount: number;
     rating: number;
     developer: string;
-    categories: Category[];
+    developerId: number;
+    categories: number[];
+    picture: string;
+
+    constructor() {}
 }

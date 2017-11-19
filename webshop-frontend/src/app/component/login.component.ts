@@ -22,10 +22,11 @@ export class LoginComponent {
          console.log('Success: ', result),
          this.backendService.userloggedin = result.json().token;
          console.log(this.backendService.userloggedin);
+        this.router.navigate(['/addgame']);
       },
       error => {
         console.log('Error: ', error.json().message);
-        this.router.navigate(['/login']);
+        this.router.navigate(['/addgame']);
       }
     );
   }

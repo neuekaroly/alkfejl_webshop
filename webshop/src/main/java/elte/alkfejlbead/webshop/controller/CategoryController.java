@@ -42,7 +42,7 @@ public class CategoryController {
 
     @Role(User.Role.USER)
     @GetMapping("")
-    public ListDTO<Category> getCategories() {
+    public ListDTO<Category> getCategories(HttpServletRequest request) {
         return categoryService.getCategories();
     }
 }

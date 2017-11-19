@@ -11,6 +11,7 @@ import { CategoryFilterComponent } from './component/categoryfilter.component';
 import { PlatformFilterComponent } from './component/platformfilter.component';
 import { PriceFilterComponent } from './component/pricefilter.component';
 import { SearchComponent } from './component/search.component';
+import { AddGameComponent } from './component/addgame.component';
 
 import { BackendService } from './service/backend.service';
 
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: 'platformfilter', component: PlatformFilterComponent },
   { path: 'pricefilter', component: PriceFilterComponent },
   { path: 'search', component: SearchComponent },
+  { path: 'addgame', component: AddGameComponent },
   { path: '', redirectTo: '/register', pathMatch: 'full'}
 ]
 
@@ -32,7 +34,8 @@ const routes: Routes = [
     CategoryFilterComponent,
     PlatformFilterComponent,
     PriceFilterComponent,
-    SearchComponent
+    SearchComponent,
+    AddGameComponent
   ],
   imports: [
     BrowserModule,

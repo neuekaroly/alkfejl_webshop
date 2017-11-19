@@ -3,6 +3,7 @@ package elte.alkfejlbead.webshop.service;
 import elte.alkfejlbead.webshop.entity.Category;
 import elte.alkfejlbead.webshop.entity.Developer;
 import elte.alkfejlbead.webshop.entity.Game;
+import elte.alkfejlbead.webshop.model.api.request.GameDTO;
 import elte.alkfejlbead.webshop.model.api.request.ListDTO;
 import elte.alkfejlbead.webshop.repository.CategoryRepository;
 import elte.alkfejlbead.webshop.repository.DeveloperRepository;
@@ -10,6 +11,8 @@ import elte.alkfejlbead.webshop.repository.GameRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.sql.rowset.serial.SerialBlob;
+import java.sql.Blob;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
@@ -27,8 +30,27 @@ public class GameService {
         this.categoryRepository = categoryRepository;
     }
 
-    public Game addNewGame(Game game) {
-        return gameRepository.save(game);
+    public void addNewGame(GameDTO game) {
+        Game newGame = new Game();
+        newGame.setGameName(game.getGameName());
+        newGame.setReleaseDate(game.getReleaseDate());
+        newGame.setPrice(game.getPrice());
+        newGame.setAmount(game.getAmount());
+        newGame.setDeveloper(developerRepository.findOne(game.getDeveloperId()));
+        Developer developer = developerRepository.findOne(game.getDeveloperId());
+        developer.getGames().add(newGame);
+        newGame.setDescription(game.getDescription());
+        newGame.setPlatform(game.getPlatform());
+        newGame.setCategories(categoryRepository.findAllById(game.getCategoryIds()));
+        byte[] bytes = game.getPicture().getBytes();
+        try {
+            Blob blob = new SerialBlob(bytes);
+            newGame.setPicture(blob);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        gameRepository.save(newGame);
+        developerRepository.save(developer);
     }
 
     public void deleteGame(int gameId) {

@@ -24,6 +24,7 @@ public class Developer extends BaseEntity{
 
     @JsonIgnore
     @OneToMany(targetEntity = Game.class,
-            cascade = CascadeType.ALL)
+            cascade = CascadeType.ALL,
+            mappedBy = "developer")
     private List<Game> games;
 }

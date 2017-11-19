@@ -6,6 +6,7 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.sql.Blob;
 import java.util.List;
 
 @Entity
@@ -36,11 +37,12 @@ public class Game extends BaseEntity {
     @Column(nullable = false)
     private int rating;
 
+    @Lob
     @Column(nullable = false)
-    private String picture;
+    private Blob picture;
 
     @JoinColumn
-    @ManyToOne(targetEntity = Developer.class)
+    @ManyToOne
     private Developer developer;
 
     @JoinColumn

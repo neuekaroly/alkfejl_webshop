@@ -3,6 +3,7 @@ package elte.alkfejlbead.webshop.controller;
 import elte.alkfejlbead.webshop.annotation.Role;
 import elte.alkfejlbead.webshop.entity.Game;
 import elte.alkfejlbead.webshop.entity.User;
+import elte.alkfejlbead.webshop.model.api.request.GameDTO;
 import elte.alkfejlbead.webshop.model.api.request.ListDTO;
 import elte.alkfejlbead.webshop.service.GameService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,8 +26,8 @@ public class GameController {
 
     @Role(User.Role.ADMIN)
     @PostMapping("")
-    public Game addGame(HttpServletRequest request, @RequestBody Game game) {
-        return gameService.addNewGame(game);
+    public void addGame(HttpServletRequest request, @RequestBody GameDTO game) {
+         gameService.addNewGame(game);
     }
 
     @Role(User.Role.ADMIN)
