@@ -7,6 +7,7 @@ import { Observable } from 'rxjs/Observable';
 
 import { User } from '../model/user';
 import {Game} from "../model/game";
+import {Category} from "../model/category";
 
 @Injectable()
 export class BackendService {
@@ -51,5 +52,12 @@ export class BackendService {
         headers.append('X-WEBSHOP-TOKEN', this.userloggedin);
         let options = new RequestOptions({headers: headers});
       return this.http.post('http://localhost:8080/games', game, options);
+    }
+
+    addCategory(category: Category): Observable<any> {
+        let headers = new Headers();
+        headers.append('X-WEBSHOP-TOKEN', this.userloggedin);
+        let options = new RequestOptions({headers: headers});
+      return this.http.post('http://localhost:8080/categories', category, options);
     }
 }
