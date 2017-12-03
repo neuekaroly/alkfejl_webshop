@@ -13,6 +13,7 @@ import { PriceFilterComponent } from './component/pricefilter.component';
 import { SearchComponent } from './component/search.component';
 import { AddGameComponent } from './component/addgame.component';
 import { AddCategoryComponent } from './component/addcategory.component';
+import { AddDeveloperComponent } from './component/adddeveloper.component';
 
 import { BackendService } from './service/backend.service';
 
@@ -25,7 +26,8 @@ const routes: Routes = [
   { path: 'search', component: SearchComponent },
   { path: 'addgame', component: AddGameComponent },
   { path: '', redirectTo: '/register', pathMatch: 'full'},
-  { path: 'addcategory', component: AddCategoryComponent}
+  { path: 'addcategory', component: AddCategoryComponent},
+  { path: 'adddeveloper', component: AddDeveloperComponent}
 ]
 
 @NgModule({
@@ -38,7 +40,8 @@ const routes: Routes = [
     PriceFilterComponent,
     SearchComponent,
     AddGameComponent,
-    AddCategoryComponent
+    AddCategoryComponent,
+    AddDeveloperComponent
   ],
   imports: [
     BrowserModule,

@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 
 @RestController
 @RequestMapping("/developers")
+@CrossOrigin("*")
 public class DeveloperController {
 
     private DeveloperService developerService;

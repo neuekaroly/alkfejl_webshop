@@ -1,0 +1,15 @@
+<div class="container">
+    <form #addDeveloperForm="ngForm" (ngSubmit)="addDeveloper()">
+        <div class="form-group">
+            <label for="developerName">Developer name</label>
+            <input type="text" class="form-control" name="developerName" 
+            [(ngModel)]="developer.developerName"required/>
+        </div>
+        <div class="form-group">
+            <label for="country">Which country?</label>
+            <input type="text" class="form-control" name="country" 
+            [(ngModel)]="developer.country"required/>
+        </div>
+        <button type="submit" class="btn btn-success">Hozzáadás</button>
+    </form>
+</div>
