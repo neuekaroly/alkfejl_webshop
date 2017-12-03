@@ -82,27 +82,27 @@ Egy konzol és PC-s játékokat árusító cég online webáruháza. A weboldalo
 	
 ![Controllers](docs/pictures/controllers.JPG)
 
-	- CategoryController:
+- CategoryController:
 	
-	![CategoryController](docs/pictures/categorycontroller.JPG)	
+![CategoryController](docs/pictures/categorycontroller.JPG)	
 
-	- DeveloperController:
+- DeveloperController:
 	
-	![DeveloperController](docs/pictures/developercontroller.JPG)
+![DeveloperController](docs/pictures/developercontroller.JPG)
 	
-	- GameController:
+- GameController:
 	
-	![GameController](docs/pictures/gamecontroller.JPG)
+![GameController](docs/pictures/gamecontroller.JPG)
 	
-	- OrderController
+- OrderController
 	
-	![OrderController](docs/pictures/ordercontroller.JPG)
+![OrderController](docs/pictures/ordercontroller.JPG)
 	
-	- StatusController
+- StatusController
 	
-	![StatusController](docs/pictures/statuscontroller.JPG)
+![StatusController](docs/pictures/statuscontroller.JPG)
 
-	- UserController
+- UserController
 	
-	![UserController](docs/pictures/usercontroller.JPG)
+![UserController](docs/pictures/usercontroller.JPG)
 	
