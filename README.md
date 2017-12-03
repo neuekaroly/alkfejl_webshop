@@ -75,3 +75,34 @@ Egy konzol és PC-s játékokat árusító cég online webáruháza. A weboldalo
 
 ![RoleAspect](docs/pictures/roleaspect.JPG)	
 
+- Controllerek:
+
+	- Ezen osztályok tartalmazzák a használt végpontokat, itt történik az authorizáció is. (A változtatás jogát fenntartjuk, a frontend
+	még nincs kész, igy előfordulhat, hogy további végpontokat kell létrehoznunk, illetve a meglévőket szükséges módositanunk.)
+	
+![Controllers](docs/pictures/controllers.JPG)
+
+	- CategoryController:
+	
+	![CategoryController](docs/pictures/categorycontroller.JPG)	
+
+	- DeveloperController:
+	
+	![DeveloperController](docs/pictures/developercontroller.JPG)
+	
+	- GameController:
+	
+	![GameController](docs/pictures/gamecontroller.JPG)
+	
+	- OrderController
+	
+	![OrderController](docs/pictures/ordercontroller.JPG)
+	
+	- StatusController
+	
+	![StatusController](docs/pictures/statuscontroller.JPG)
+
+	- UserController
+	
+	![UserController](docs/pictures/usercontroller.JPG)
+	
