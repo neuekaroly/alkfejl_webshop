@@ -59,13 +59,13 @@ Egy konzol és PC-s játékokat árusító cég online webáruháza. A weboldalo
 	
 ## Alkalmazott könyvtárstruktúra:
 
-![Annotation](docs/pictures/annotation.jpg)
+![Annotation](docs/pictures/annotation.JPG)
 
 - Role annotáció:
 	Az authorizációban van segitségünkre. A controllerben található végpontokra tehetünk annotációt,
 	mely ellenőrzi, hogy van-e jogosultságunk végrehajtani.
 	
-![Role](docs/pictures/role.jpg)
+![Role](docs/pictures/role.JPG)
 
 - RoleAspect:
 	Gyakorlatilag ez az osztály végzi az authorizációt, ellenőrzi, hogy a felannotált függvény controllerben található metódus-e,
@@ -73,5 +73,5 @@ Egy konzol és PC-s játékokat árusító cég online webáruháza. A weboldalo
 	Tokenjét, ami alapján kikereshető az adatbázisból, igy meg tudjuk állapitani hogy van-e kellő jogosultsága végrehajtani a függvény.
 	Ha nincs, hibát dobunk, ha van, akkor engedjük lefutni a metódust.
 
-![RoleAspect](docs/pictures/roleaspect.jpg)	
+![RoleAspect](docs/pictures/roleaspect.JPG)	
 
