@@ -48,26 +48,26 @@ Egy konzol és PC-s játékokat árusító cég online webáruháza. A weboldalo
 
 ## Adatbázis kapcsolatok:
 - egy-egy kapcsolat:
-	-Order - Status
+	- Order - Status
 - egy-sok kapcsolat:
-	-OrderItem - Game
-	-OrderItem - Order
-	-Order - User 
-	-Developer - Game
+	- OrderItem - Game
+	- OrderItem - Order
+	- Order - User 
+	- Developer - Game
 - sok-sok kapcsolat:
-	-Category - Game 
+	- Category - Game 
 	
 ## Alkalmazott könyvtárstruktúra:
 
 ![Database](docs/pictures/annotation.jpg)
 
--Role annotáció:
+- Role annotáció:
 	Az authorizációban van segitségünkre. A controllerben található végpontokra tehetünk annotációt,
 	mely ellenőrzi, hogy van-e jogosultságunk végrehajtani.
 	
 ![Database](docs/pictures/role.jpg)
 
--RoleAspect:
+- RoleAspect:
 	Gyakorlatilag ez az osztály végzi az authorizációt, ellenőrzi, hogy a felannotált függvény controllerben található metódus-e,
 	ha igen akkor további feltételeket ellenőriz. A checkToken metódus lekéri a HttpServletRequest paraméterből a felhasználó 
 	Tokenjét, ami alapján kikereshető az adatbázisból, igy meg tudjuk állapitani hogy van-e kellő jogosultsága végrehajtani a függvény.
