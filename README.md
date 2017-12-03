@@ -106,3 +106,66 @@ Egy konzol és PC-s játékokat árusító cég online webáruháza. A weboldalo
 	
 ![UserController](docs/pictures/usercontroller.JPG)
 	
+- Entities: Ezen osztályok reprezentálják az adatbázis tábláit, a táblák nevei, oszlopnevei megegyeznek az adatbázis UML-en található
+adatokkal. (Note: Jelen pillanatban, 2017.december.3-án, eltérések tapasztalhatóak a két forrás között, azonban a végleges dokumentációban
+az adatok meg fognak egyezni.)
+
+![Entities](docs/pictures/entities.JPG)
+
+- Request: Ebben a package-ban található DTO osztályok a frontend és a backend kommunikációját hivatottak elősegiteni.
+
+![DTOs](docs/pictures/dtos.JPG)
+
+- Response: Ez a Token osztál tartalmazza azokat az információkat, mely segitségével a Http kérés Header szekciójában, át tudjuk adni a frontendnek
+az éppen bejelentkezett felhasználó Tokenjét.
+
+![Response](docs/pictures/response.JPG)
+
+![Token](docs/pictures/token.JPG)
+
+- Repository: Itt találhatóak az egyes entitásokhoz tartozó CrudRepository interfacek, melyek tartalmazzák az adatbázis-kezeléshez szükséges 
+metódusokat, amiket a service osztályok használnak.
+
+![Repository](docs/pictures/repository.JPG)
+
+- Service: Ezen osztályok felelősek a Controllerek és az adatbázis-táblál közti kommunikációért.
+
+![Services](docs/pictures/services.JPG)
+
+- CategoryService:
+
+![CategoryService](docs/pictures/categoryservice.JPG)
+
+- DeveloperService:
+
+![DeveloperService](docs/pictures/developerservice.JPG)
+
+- GameService:
+
+![GameService](docs/pictures/gameservice1.JPG)
+![GameService](docs/pictures/gameservice2.JPG)
+![GameService](docs/pictures/gameservice3.JPG)
+
+- OrderService:
+
+![OrderService](docs/pictures/orderservice.JPG)
+
+- StatusService:
+
+![StatusService](docs/pictures/statusservice.JPG)
+
+- UserService:
+
+![UserService](docs/pictures/userservice.JPG)
+
+## Használt Dependency-k:
+
+- spring-boot-starter-data-jpa
+- spring-boot-devtools
+- spring-boot-devtools
+- h2
+- lombok
+- spring-boot-starter-test
+- mysql-connector-java
+- spring-security-crypto
+- spring-boot-starter-aop
