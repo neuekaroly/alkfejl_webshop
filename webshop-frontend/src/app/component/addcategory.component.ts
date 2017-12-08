@@ -1,7 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 
-import { BackendService } from '../service/backend.service';
+import { UserService } from '../service/user.service';
 import { Category } from '../model/category';
+import {CategoryService} from "../service/category.service";
 
 @Component({
   selector: 'addcategory',
@@ -11,10 +12,10 @@ import { Category } from '../model/category';
 export class AddCategoryComponent {
     category = new Category();
 
-    constructor(private backendService: BackendService) {}
+    constructor(private categoryService: CategoryService) {}
 
     addCategory(): void {
-      this.backendService.addCategory(this.category).subscribe(
+      this.categoryService.addCategory(this.category).subscribe(
         result => console.log('Success: ', result),
         error => {
           console.log('Error: ', error.json().message);

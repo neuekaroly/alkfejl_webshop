@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 
-import { BackendService } from '../service/backend.service';
+import { DeveloperService } from '../service/developer.service';
 import { Developer } from '../model/developer';
 
 @Component({
@@ -11,10 +11,10 @@ import { Developer } from '../model/developer';
 export class AddDeveloperComponent {
     developer = new Developer();
 
-    constructor(private backendService: BackendService) {}
+    constructor(private developerService: DeveloperService) {}
 
     addDeveloper(): void {
-      this.backendService.addDeveloper(this.developer).subscribe(
+      this.developerService.addDeveloper(this.developer).subscribe(
         result => console.log('Success: ', result),
         error => {
           console.log(this.developer);

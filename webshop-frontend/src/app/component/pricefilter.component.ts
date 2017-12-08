@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 
-import { BackendService } from '../service/backend.service';
+import { UserService } from '../service/user.service';
 
 @Component({
   selector: 'pricefilter',
@@ -11,7 +11,7 @@ import { BackendService } from '../service/backend.service';
 export class PriceFilterComponent {
     value: any;
 
-    constructor(private backendService: BackendService) {
+    constructor(private backendService: UserService) {
         this.value = 5000;
     }
 

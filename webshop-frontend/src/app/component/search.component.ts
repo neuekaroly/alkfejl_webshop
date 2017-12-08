@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
-import { BackendService } from '../service/backend.service';
-import { Game } from '../model/Game' 
+import { Game } from '../model/Game'
+import {GameService} from "../service/game.service";
 
 @Component({
   selector: 'search',
@@ -9,14 +9,14 @@ import { Game } from '../model/Game'
 })
 
 export class SearchComponent {
-    
+
     searchtag: string;
     searchresult: Game[];
 
-    constructor(private backendService: BackendService) {}
+    constructor(private gameService: GameService) {}
 
     search(): void {
-    this.backendService.searchByGameName(this.searchtag).subscribe(
+    this.gameService.searchByGameName(this.searchtag).subscribe(
       result => {
          console.log('Success: ', result),
          this.searchresult = result.json().items;

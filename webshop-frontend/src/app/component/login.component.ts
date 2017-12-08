@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 
-import { BackendService } from '../service/backend.service';
+import { UserService } from '../service/user.service';
 
 import { User } from '../model/user';
 
@@ -14,7 +14,7 @@ export class LoginComponent {
 
   user: User = new User();
 
-  constructor(private backendService: BackendService, private router: Router) {}
+  constructor(private backendService: UserService, private router: Router) {}
 
   login(): void {
     this.backendService.login(this.user).subscribe(

@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { BackendService } from '../service/backend.service';
+import { UserService } from '../service/user.service';
 
 import { User } from '../model/user';
 
@@ -17,7 +17,7 @@ export class RegistrationComponent implements OnInit {
 
   selectedUserName: string;
 
-  constructor(private backendService: BackendService, private router: Router) {}
+  constructor(private backendService: UserService, private router: Router) {}
 
   ngOnInit(): void {
 

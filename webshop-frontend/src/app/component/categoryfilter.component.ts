@@ -2,7 +2,8 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 import { Category } from '../model/category';
 
-import { BackendService } from '../service/backend.service';
+import { UserService } from '../service/user.service';
+import {CategoryService} from "../service/category.service";
 
 @Component({
   selector: 'categoryfilter',
@@ -16,10 +17,10 @@ export class CategoryFilterComponent implements OnInit {
     @Output()
     onSelectedCategoriesChanged = new EventEmitter<number[]>();
 
-    constructor(private backendService: BackendService) {}
+    constructor(private categoryService: CategoryService) {}
 
     ngOnInit(): void {
-      this.backendService.getCategories().subscribe(
+      this.categoryService.getCategories().subscribe(
         result => {
           console.log('Success: ', result),
             this.categories = result.json().items;

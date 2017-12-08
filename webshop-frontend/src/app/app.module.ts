@@ -15,7 +15,11 @@ import { AddGameComponent } from './component/addgame.component';
 import { AddCategoryComponent } from './component/addcategory.component';
 import { AddDeveloperComponent } from './component/adddeveloper.component';
 
-import { BackendService } from './service/backend.service';
+import { UserService } from './service/user.service';
+import {DeveloperService} from "./service/developer.service";
+import {GameService} from "./service/game.service";
+import {CategoryService} from "./service/category.service";
+import {PlatformService} from "./service/platform.service";
 
 const routes: Routes = [
   { path: 'register', component: RegistrationComponent },
@@ -49,7 +53,7 @@ const routes: Routes = [
     HttpModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [BackendService],
+  providers: [UserService, DeveloperService, CategoryService, GameService, PlatformService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

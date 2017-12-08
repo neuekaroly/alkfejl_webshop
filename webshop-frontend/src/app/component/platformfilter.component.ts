@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 
-import { BackendService } from '../service/backend.service';
+import {PlatformService} from "../service/platform.service";
 
 @Component({
   selector: 'platformfilter',
@@ -10,10 +10,10 @@ import { BackendService } from '../service/backend.service';
 export class PlatformFilterComponent {
     platforms: string[];
 
-    constructor(private backendService: BackendService) {}
+    constructor(private platformService: PlatformService) {}
 
     getPlatforms(): void {
-    this.backendService.getPlatforms().subscribe(
+    this.platformService.getPlatforms().subscribe(
       result => {
          console.log('Success: ', result),
          this.platforms = result.json().items;
