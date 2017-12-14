@@ -16,7 +16,7 @@ export class CategoryService {
     let headers = new Headers();
     headers.append('X-WEBSHOP-TOKEN', this.userService.userloggedin);
     let options = new RequestOptions({headers: headers});
-    return this.http.get('http://localhost:8080/categories',options);
+    return this.http.get('http://localhost:8080/categories', options);
   }
 
   addCategory(category: Category): Observable<any> {
