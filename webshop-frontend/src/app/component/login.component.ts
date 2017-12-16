@@ -22,7 +22,7 @@ export class LoginComponent {
          console.log('Success: ', result),
          this.backendService.userloggedin = result.json().token;
          console.log(this.backendService.userloggedin);
-        this.router.navigate(['/adddeveloper']);
+        this.router.navigate(['/admininterface']);
       },
       error => {
         console.log('Error: ', error.json().message);
