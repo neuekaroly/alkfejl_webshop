@@ -12,6 +12,9 @@ export class PlatformFilterComponent implements OnInit{
     platforms: string[];
 
     @Input()
+    selectedPlatforms: number[];
+
+    @Input()
     filter: Filter;
 
     constructor(private platformService: PlatformService) {}
@@ -27,5 +30,23 @@ export class PlatformFilterComponent implements OnInit{
         console.log('Error: ', error.json().message);
       }
     );
+  }
+
+  onPlatformSelected(event): void {
+
+    let activeSelectedPlatforms: Array<number>;
+    if (this.selectedPlatforms != null) {
+      activeSelectedPlatforms = this.selectedPlatforms;
+    }
+    else {
+      activeSelectedPlatforms = this.filter.categories;
+    }
+
+    if (event.target.checked) {
+      activeSelectedPlatforms.push(event.target.value);
+    } else {
+      const indexOfValueToBeDeleted = activeSelectedPlatforms.indexOf(event.target.value);
+      activeSelectedPlatforms.splice(indexOfValueToBeDeleted, 1);
+    }
   }
 }
