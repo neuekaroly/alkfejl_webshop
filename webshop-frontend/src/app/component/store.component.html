@@ -1,6 +1,8 @@
-<div class="container">
-  <div *ngIf="games" class="row">
+<div class="row">
+  <div>
+    <filter class="col-sm-3"></filter>
+  </div>
+  <div *ngIf="games" class="col-sm-9">
     <game *ngFor="let game of games" [game]="game"></game>
   </div>
 </div>
-

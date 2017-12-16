@@ -1,3 +1,6 @@
+import {Developer} from "./developer";
+import {Category} from "./category";
+
 export class Game {
     gameName: string;
     releaseDate: string;
@@ -6,9 +9,10 @@ export class Game {
     price: number;
     amount: number;
     rating: number;
-    developer: string;
+    developer: Developer;
     developerId: number;
-    categories: number[];
+    categoryIds: number[];
+    categories: Category[];
     picture: string;
 
     constructor() {}

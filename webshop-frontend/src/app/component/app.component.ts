@@ -10,16 +10,4 @@ export class AppComponent {
 
   constructor(private userService: UserService) {}
 
-   goToWebshop(): void {
-    //Need to be finished
-  }
-
-   goToOrders(): void {
-    //Need to be finished
-  }
-
-   goToShoppingBasket(): void {
-    //Need to be finished
-  }
-
 }

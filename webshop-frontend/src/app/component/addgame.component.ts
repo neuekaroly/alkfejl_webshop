@@ -18,7 +18,7 @@ export class AddGameComponent {
 
     onSelectedCategoriesChanged(categoryIds: number[]) {
       console.log(categoryIds);
-      categoryIds = categoryIds;
+      this.categoryIds = categoryIds;
     }
 
     encodeAndSetCover(file) {
@@ -30,7 +30,7 @@ export class AddGameComponent {
     }
 
     addGame(): void {
-      this.game.categories = this.categoryIds;
+      this.game.categoryIds = this.categoryIds;
       this.gameService.addGame(this.game).subscribe(
         result => console.log('Success: ', result),
         error => {

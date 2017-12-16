@@ -3,7 +3,9 @@
     <img class="card-img-top" [src]="game.picture" alt="Card image cap" style="width: 16rem;">
     <div class="card-block">
       <h4 class="card-title">{{game.gameName}}</h4>
-      <p class="card-text">{{game.description}}</p>
+      <p class="card-text">{{game.price}} Ft</p>
+      <p class="card-text">Fejlesztő: {{game.developer.developerName}}</p>
+      <p class="card-text">Kategória: {{game.categories[0]?.categoryName}}</p>
       <a href="#" class="btn btn-primary">Kosárba</a>
     </div>
   </div>

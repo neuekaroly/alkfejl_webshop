@@ -25,6 +25,7 @@ import {CategoryService} from "./service/category.service";
 import {PlatformService} from "./service/platform.service";
 import {GameComponent} from "./component/game.component";
 import {StoreComponent} from "./component/store.component";
+import {FilterComponent} from "./component/filter.component";
 
 
 const routes: Routes = [
@@ -62,7 +63,8 @@ const routes: Routes = [
     AdminInterfaceComponent,
     MainComponent,
     ShoppingBasketComponent,
-    StoreComponent
+    StoreComponent,
+    FilterComponent
   ],
   imports: [
     BrowserModule,
