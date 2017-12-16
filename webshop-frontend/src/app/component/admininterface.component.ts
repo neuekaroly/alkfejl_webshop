@@ -23,4 +23,8 @@ export class AdminInterfaceComponent {
   goToAddDeveloper(): void {
     this.router.navigate(['/adddeveloper']);
   }
+
+  goToManageUsers(): void {
+    //Must be finished
+  }
 }

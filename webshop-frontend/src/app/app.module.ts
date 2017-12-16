@@ -15,6 +15,7 @@ import { AddGameComponent } from './component/addgame.component';
 import { AddCategoryComponent } from './component/addcategory.component';
 import { AddDeveloperComponent } from './component/adddeveloper.component';
 import { AdminInterfaceComponent } from './component/admininterface.component';
+import {MainComponent} from "./component/main.component";
 
 import { UserService } from './service/user.service';
 import {DeveloperService} from "./service/developer.service";
@@ -23,23 +24,23 @@ import {CategoryService} from "./service/category.service";
 import {PlatformService} from "./service/platform.service";
 import {GameComponent} from "./component/game.component";
 
+
 const routes: Routes = [
   { path: 'register', component: RegistrationComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'categoryfilter', component: CategoryFilterComponent },
-  { path: 'platformfilter', component: PlatformFilterComponent },
-  { path: 'pricefilter', component: PriceFilterComponent },
-  { path: 'search', component: SearchComponent },
-  { path: 'addgame', component: AddGameComponent },
-  { path: '', redirectTo: '/register', pathMatch: 'full'},
-  { path: 'addcategory', component: AddCategoryComponent},
-  { path: 'adddeveloper', component: AddDeveloperComponent},
-<<<<<<< HEAD
-  { path: 'game', component: GameComponent}
-=======
-  { path: 'admininterface', component: AdminInterfaceComponent}
->>>>>>> db8c3d6bdbf885fc5f9cdbd71b99cabf2e16350a
-]
+  { path: '', component: MainComponent, children: [
+    { path: 'categoryfilter', component: CategoryFilterComponent },
+    { path: 'platformfilter', component: PlatformFilterComponent },
+    { path: 'pricefilter', component: PriceFilterComponent },
+    { path: 'search', component: SearchComponent },
+    { path: 'addgame', component: AddGameComponent },
+    { path: '', redirectTo: '/register', pathMatch: 'full'},
+    { path: 'addcategory', component: AddCategoryComponent},
+    { path: 'adddeveloper', component: AddDeveloperComponent},
+    { path: 'admininterface', component: AdminInterfaceComponent},
+    { path: 'game', component: GameComponent}
+  ]}
+];
 
 @NgModule({
   declarations: [
@@ -53,11 +54,9 @@ const routes: Routes = [
     AddGameComponent,
     AddCategoryComponent,
     AddDeveloperComponent,
-<<<<<<< HEAD
-    GameComponent
-=======
-    AdminInterfaceComponent
->>>>>>> db8c3d6bdbf885fc5f9cdbd71b99cabf2e16350a
+    GameComponent,
+    AdminInterfaceComponent,
+    MainComponent
   ],
   imports: [
     BrowserModule,
