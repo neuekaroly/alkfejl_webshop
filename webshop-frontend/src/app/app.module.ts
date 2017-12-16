@@ -15,7 +15,7 @@ import { AddGameComponent } from './component/addgame.component';
 import { AddCategoryComponent } from './component/addcategory.component';
 import { AddDeveloperComponent } from './component/adddeveloper.component';
 import { AdminInterfaceComponent } from './component/admininterface.component';
-import {MainComponent} from "./component/main.component";
+import { MainComponent } from "./component/main.component";
 
 import { UserService } from './service/user.service';
 import {DeveloperService} from "./service/developer.service";

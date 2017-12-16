@@ -19,7 +19,7 @@ export class GameComponent implements OnInit {
   constructor(private gameService: GameService) {}
 
   ngOnInit() {
-    this.gameService.searchByGameName('fos').subscribe(
+    this.gameService.searchByGameName('pubg').subscribe(
       result => this.game = result.json().items[0],
       error => console.log(error)
     );
