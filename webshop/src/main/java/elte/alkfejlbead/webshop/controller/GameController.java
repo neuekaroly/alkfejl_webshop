@@ -5,12 +5,12 @@ import elte.alkfejlbead.webshop.entity.Game;
 import elte.alkfejlbead.webshop.entity.User;
 import elte.alkfejlbead.webshop.model.api.request.GameDTO;
 import elte.alkfejlbead.webshop.model.api.request.ListDTO;
+import elte.alkfejlbead.webshop.model.api.response.GameResponseDTO;
 import elte.alkfejlbead.webshop.service.GameService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.List;
 
 @RestController
 @RequestMapping("/games")
@@ -62,7 +62,7 @@ public class GameController {
 
     @Role()
     @GetMapping("/search/{gameName}")
-    public ListDTO<Game> searchByGameName(HttpServletRequest request, @PathVariable String gameName) {
+    public ListDTO<GameResponseDTO> searchByGameName(HttpServletRequest request, @PathVariable String gameName) {
         return gameService.searchByGameName(gameName);
     }
 }

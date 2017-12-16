@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 import { GameService } from '../service/game.service';
-import { Game } from '../model/Game';
+import { Game } from '../model/game';
 
 @Component({
   selector: 'addgame',
@@ -30,7 +30,6 @@ export class AddGameComponent {
 
     addGame(): void {
       this.game.categories = this.categoryIds;
-      this.game.developerId = 2;
       this.gameService.addGame(this.game).subscribe(
         result => console.log('Success: ', result),
         error => {

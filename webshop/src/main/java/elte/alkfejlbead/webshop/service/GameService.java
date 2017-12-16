@@ -1,10 +1,10 @@
 package elte.alkfejlbead.webshop.service;
 
-import elte.alkfejlbead.webshop.entity.Category;
 import elte.alkfejlbead.webshop.entity.Developer;
 import elte.alkfejlbead.webshop.entity.Game;
 import elte.alkfejlbead.webshop.model.api.request.GameDTO;
 import elte.alkfejlbead.webshop.model.api.request.ListDTO;
+import elte.alkfejlbead.webshop.model.api.response.GameResponseDTO;
 import elte.alkfejlbead.webshop.repository.CategoryRepository;
 import elte.alkfejlbead.webshop.repository.DeveloperRepository;
 import elte.alkfejlbead.webshop.repository.GameRepository;
@@ -15,7 +15,6 @@ import javax.sql.rowset.serial.SerialBlob;
 import java.sql.Blob;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class GameService {
@@ -92,9 +91,16 @@ public class GameService {
         return platforms;
     }
 
-    public ListDTO<Game> searchByGameName(String gameName) {
-        ListDTO<Game> games = new ListDTO<>();
-        games.setItems(gameRepository.searchByGameName(gameName));
+    public ListDTO<GameResponseDTO> searchByGameName(String gameName) {
+
+        ListDTO<GameResponseDTO> games = new ListDTO<>();
+        List<Game> dbGames = gameRepository.searchByGameName(gameName);
+        for (Game dbGame : dbGames) {
+
+            GameResponseDTO game = new GameResponseDTO(dbGame);
+            games.add(game);
+        }
+
         return games;
     }
 }
