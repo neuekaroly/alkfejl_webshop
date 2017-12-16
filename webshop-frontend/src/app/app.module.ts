@@ -34,7 +34,7 @@ const routes: Routes = [
     { path: 'pricefilter', component: PriceFilterComponent },
     { path: 'search', component: SearchComponent },
     { path: 'addgame', component: AddGameComponent },
-    { path: '', redirectTo: '/register', pathMatch: 'full'},
+    //{ path: '', redirectTo: '/game', pathMatch: 'full'},
     { path: 'addcategory', component: AddCategoryComponent},
     { path: 'adddeveloper', component: AddDeveloperComponent},
     { path: 'admininterface', component: AdminInterfaceComponent},

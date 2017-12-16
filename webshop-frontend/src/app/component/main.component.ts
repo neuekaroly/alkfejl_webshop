@@ -11,7 +11,7 @@ export class MainComponent {
   constructor(private backendService: UserService, private router: Router) {}
 
    goToWebshop(): void {
-    //Need to be finished
+     this.router.navigate(['/register']);
   }
 
    goToOrders(): void {
@@ -19,7 +19,7 @@ export class MainComponent {
   }
 
    goToShoppingBasket(): void {
-    //Need to be finished 
+    //Need to be finished
   }
 
 }
