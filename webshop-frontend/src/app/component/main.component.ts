@@ -1,6 +1,7 @@
 import {UserService} from "../service/user.service";
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { RoutingService, SHOPPINGBASKET } from '../service/routing.service';
 
 @Component({
   selector: 'app-root',
@@ -9,6 +10,8 @@ import { Router } from '@angular/router';
 export class MainComponent {
 
   constructor(private backendService: UserService, private router: Router) {}
+
+  SHOPPINGBASKET = SHOPPINGBASKET;
 
    goToWebshop(): void {
     //Need to be finished
@@ -19,7 +22,7 @@ export class MainComponent {
   }
 
    goToShoppingBasket(): void {
-    //Need to be finished 
+    //this.router.navigate(['/shoppingbasket']); 
   }
 
 }
