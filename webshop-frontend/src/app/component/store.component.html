@@ -1,0 +1,6 @@
+<div class="container">
+  <div *ngIf="games" class="row">
+    <game *ngFor="let game of games" [game]="game"></game>
+  </div>
+</div>
+

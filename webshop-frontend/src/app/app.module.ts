@@ -24,6 +24,7 @@ import {GameService} from "./service/game.service";
 import {CategoryService} from "./service/category.service";
 import {PlatformService} from "./service/platform.service";
 import {GameComponent} from "./component/game.component";
+import {StoreComponent} from "./component/store.component";
 
 
 const routes: Routes = [
@@ -40,7 +41,8 @@ const routes: Routes = [
     { path: 'adddeveloper', component: AddDeveloperComponent},
     { path: 'admininterface', component: AdminInterfaceComponent},
     { path: 'game', component: GameComponent},
-    { path: 'shoppingbasket', component: ShoppingBasketComponent}
+    { path: 'shoppingbasket', component: ShoppingBasketComponent},
+    { path: 'store', component: StoreComponent}
   ]}
 ];
 
@@ -59,7 +61,8 @@ const routes: Routes = [
     GameComponent,
     AdminInterfaceComponent,
     MainComponent,
-    ShoppingBasketComponent
+    ShoppingBasketComponent,
+    StoreComponent
   ],
   imports: [
     BrowserModule,

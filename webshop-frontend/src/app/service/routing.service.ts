@@ -6,6 +6,7 @@ export const REGISTER = '/register';
 
 export const MAIN = '';
 export const SHOPPINGBASKET = MAIN + '/shoppingbasket';
+export const STORE = MAIN + '/store';
 
 @Injectable()
 export class RoutingService {
