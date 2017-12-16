@@ -12,6 +12,6 @@ import java.util.Optional;
 
 @Repository
 public interface GameRepository extends CrudRepository<Game, Integer> {
-    @Query("select g from Game g where g.gameName like CONCAT('%',:searchName,'%')")
+    @Query("select g from Game g where g.gameName like CONCAT('%',:searchName,'%') order by g.price ASC")
     List<Game> searchByGameName(@Param("searchName") String searchName);
 }

@@ -34,7 +34,7 @@ public class CategoryService {
 
     public ListDTO<Category> getCategories() {
         ListDTO<Category> categories = new ListDTO<>();
-        categories.setItems(categoryRepository.findAll());
+        categories.setItems(categoryRepository.findAllByOrderByCategoryNameAsc());
         return categories;
     }
 }

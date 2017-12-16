@@ -1,5 +1,5 @@
- <div class="col-sm-3">
- <ul class = "list-group">
+ <div>
+ <ul *ngIf="categories" class = "list-group">
     <li class = "list-group-item" *ngFor="let c of categories" ><label><input class="form-check-input" (change)="onCategorySelected($event)" type="checkbox" [value]="c.id"> {{c.categoryName}}</label></li>
  </ul>
  </div>

@@ -4,6 +4,7 @@ import { Category } from '../model/category';
 
 import { UserService } from '../service/user.service';
 import {CategoryService} from "../service/category.service";
+import {Filter} from "../model/filter";
 
 @Component({
   selector: 'categoryfilter',
@@ -12,10 +13,12 @@ import {CategoryService} from "../service/category.service";
 
 export class CategoryFilterComponent implements OnInit {
     categories: Category[];
-    selectedCategories: number[] = new Array<number>();
 
-    @Output()
-    onSelectedCategoriesChanged = new EventEmitter<number[]>();
+    @Input()
+    filter: Filter;
+
+    @Input()
+    selectedCategories: number[];
 
     constructor(private categoryService: CategoryService) {}
 
@@ -34,13 +37,20 @@ export class CategoryFilterComponent implements OnInit {
 
 
     onCategorySelected(event): void {
-    console.log(event.target.value);
-    console.log(event.target.checked);
-    if (event.target.checked) {
-      this.selectedCategories.push(event.target.value);
-    } else {
-      this.selectedCategories = this.selectedCategories.filter(x => x !== event.target.value);
+
+      let activeSelectedCategories: Array<number>;
+      if (this.selectedCategories != null) {
+        activeSelectedCategories = this.selectedCategories;
+      }
+      else {
+        activeSelectedCategories = this.filter.categories;
+      }
+
+      if (event.target.checked) {
+        activeSelectedCategories.push(event.target.value);
+      } else {
+        const indexOfValueToBeDeleted = activeSelectedCategories.indexOf(event.target.value);
+        activeSelectedCategories.splice(indexOfValueToBeDeleted, 1);
+      }
     }
-    this.onSelectedCategoriesChanged.emit(this.selectedCategories);
-  }
 }

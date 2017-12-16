@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 
 import { Game } from '../model/Game'
 import {GameService} from "../service/game.service";
+import {Filter} from "../model/filter";
 
 @Component({
   selector: 'search',
@@ -11,19 +12,13 @@ import {GameService} from "../service/game.service";
 export class SearchComponent {
 
     searchtag: string;
-    searchresult: Game[];
+
+    @Input()
+    filter: Filter;
 
     constructor(private gameService: GameService) {}
 
-    search(): void {
-    this.gameService.searchByGameName(this.searchtag).subscribe(
-      result => {
-         console.log('Success: ', result),
-         this.searchresult = result.json().items;
-      },
-      error => {
-        console.log('Error: ', error.json().message);
-      }
-    );
-  }
+    changedSearchTag() {
+      this.filter.searchTag = this.searchtag;
+    }
 }

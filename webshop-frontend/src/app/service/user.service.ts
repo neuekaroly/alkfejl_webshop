@@ -9,7 +9,6 @@ import { User } from '../model/user';
 
 @Injectable()
 export class UserService {
-
     userloggedin: string = 'f85a5cff-2228-4e2a-bd60-a2237e357adc';
 
     constructor(private http: Http) {}

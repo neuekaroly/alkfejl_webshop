@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 export class AddGameComponent {
 
     game: Game = new Game();
-    categoryIds: number[];
+    categoryIds: Array<number> = [];
 
     constructor(private gameService: GameService) {}
 

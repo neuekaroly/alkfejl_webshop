@@ -11,6 +11,6 @@ import java.util.Optional;
 public interface CategoryRepository extends CrudRepository<Category, Integer> {
         Optional<Category> findByCategoryName(String categoryName);
 
-        List<Category> findAll();
+        List<Category> findAllByOrderByCategoryNameAsc();
         List<Category> findAllById(List<Integer> ids);
 }

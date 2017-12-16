@@ -1,18 +1,22 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 import {PlatformService} from "../service/platform.service";
+import {Filter} from "../model/filter";
 
 @Component({
   selector: 'platformfilter',
   templateUrl: './platformfilter.component.html'
 })
 
-export class PlatformFilterComponent {
+export class PlatformFilterComponent implements OnInit{
     platforms: string[];
+
+    @Input()
+    filter: Filter;
 
     constructor(private platformService: PlatformService) {}
 
-    getPlatforms(): void {
+    ngOnInit(): void {
     this.platformService.getPlatforms().subscribe(
       result => {
          console.log('Success: ', result),
