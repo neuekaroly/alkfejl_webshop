@@ -12,7 +12,7 @@ export class PlatformFilterComponent implements OnInit{
     platforms: string[];
 
     @Input()
-    selectedPlatforms: number[];
+    selectedPlatforms: string[];
 
     @Input()
     filter: Filter;
@@ -34,12 +34,12 @@ export class PlatformFilterComponent implements OnInit{
 
   onPlatformSelected(event): void {
 
-    let activeSelectedPlatforms: Array<number>;
+    let activeSelectedPlatforms: Array<string>;
     if (this.selectedPlatforms != null) {
       activeSelectedPlatforms = this.selectedPlatforms;
     }
     else {
-      activeSelectedPlatforms = this.filter.categories;
+      activeSelectedPlatforms = this.filter.platforms;
     }
 
     if (event.target.checked) {
@@ -48,5 +48,8 @@ export class PlatformFilterComponent implements OnInit{
       const indexOfValueToBeDeleted = activeSelectedPlatforms.indexOf(event.target.value);
       activeSelectedPlatforms.splice(indexOfValueToBeDeleted, 1);
     }
+
+    console.log(activeSelectedPlatforms);
+    console.log(this.filter.platforms);
   }
 }

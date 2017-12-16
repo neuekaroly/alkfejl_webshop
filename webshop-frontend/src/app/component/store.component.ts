@@ -15,7 +15,14 @@ export class StoreComponent implements OnInit {
   games: Array<Game>;
 
   ngOnInit() {
-    this.gameService.searchByGameName('pubg').subscribe(
+    this.gameService.getAllGames().subscribe(
+      result => this.games = result.json().items,
+      error => console.log(error)
+    );
+  }
+
+  onSearchGameName(searchTag: string) {
+    this.gameService.searchByGameName(searchTag).subscribe(
       result => this.games = result.json().items,
       error => console.log(error)
     );

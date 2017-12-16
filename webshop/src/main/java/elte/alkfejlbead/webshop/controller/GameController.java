@@ -27,8 +27,15 @@ public class GameController {
     @Role(User.Role.ADMIN)
     @PostMapping("")
     public void addGame(HttpServletRequest request, @RequestBody GameDTO game) {
-         gameService.addNewGame(game);
+        gameService.addNewGame(game);
     }
+
+    @Role(User.Role.ADMIN)
+    @GetMapping("")
+    public ListDTO<GameResponseDTO> getAllGames(HttpServletRequest request) {
+        return this.gameService.getAllGames();
+    }
+
 
     @Role(User.Role.ADMIN)
     @PostMapping("/{gameId]/developer/{developerId}")

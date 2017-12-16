@@ -40,7 +40,7 @@ public class GameService {
         developer.getGames().add(newGame);
         newGame.setDescription(game.getDescription());
         newGame.setPlatform(game.getPlatform());
-        newGame.setCategories(categoryRepository.findAllById(game.getCategoryIds()));
+        newGame.setCategories(categoryRepository.findByIdIn(game.getCategoryIds()));
         byte[] bytes = game.getPicture().getBytes();
         try {
             Blob blob = new SerialBlob(bytes);
@@ -95,6 +95,18 @@ public class GameService {
 
         ListDTO<GameResponseDTO> games = new ListDTO<>();
         List<Game> dbGames = gameRepository.searchByGameName(gameName);
+        for (Game dbGame : dbGames) {
+
+            GameResponseDTO game = new GameResponseDTO(dbGame);
+            games.add(game);
+        }
+
+        return games;
+    }
+
+    public ListDTO<GameResponseDTO> getAllGames() {
+        ListDTO<GameResponseDTO> games = new ListDTO<>();
+        List<Game> dbGames = gameRepository.findAllByOrderByPriceAsc();;
         for (Game dbGame : dbGames) {
 
             GameResponseDTO game = new GameResponseDTO(dbGame);

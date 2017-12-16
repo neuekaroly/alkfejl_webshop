@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 import { Game } from '../model/Game'
 import {GameService} from "../service/game.service";
@@ -16,9 +16,16 @@ export class SearchComponent {
     @Input()
     filter: Filter;
 
+    @Output()
+    startSearchByNameTag = new EventEmitter<string>();
+
     constructor(private gameService: GameService) {}
 
     changedSearchTag() {
       this.filter.searchTag = this.searchtag;
+    }
+
+    searchByNameTag() {
+      this.startSearchByNameTag.emit(this.searchtag);
     }
 }

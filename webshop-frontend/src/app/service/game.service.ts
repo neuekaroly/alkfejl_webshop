@@ -19,6 +19,13 @@ export class GameService {
     return this.http.get('http://localhost:8080/games/search/' + searchtag, options);
   }
 
+  getAllGames(): Observable<any> {
+    let headers = new Headers();
+    headers.append('X-WEBSHOP-TOKEN', this.userService.userloggedin);
+    let options = new RequestOptions({headers: headers});
+    return this.http.get('http://localhost:8080/games/', options);
+  }
+
   addGame(game: Game): Observable<any> {
     let headers = new Headers();
     headers.append('X-WEBSHOP-TOKEN', this.userService.userloggedin);

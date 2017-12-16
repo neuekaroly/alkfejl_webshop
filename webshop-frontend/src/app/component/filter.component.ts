@@ -1,5 +1,5 @@
 import {UserService} from "../service/user.service";
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import { Filter } from "../model/filter";
 
 @Component({
@@ -10,10 +10,14 @@ export class FilterComponent {
 
   filter: Filter = new Filter();
 
+  @Output()
+  onSearchByNameTag = new EventEmitter<string>();
+
   constructor() {}
 
   showfilter() {
     console.log(this.filter.priceTag);
     console.log(this.filter.searchTag);
+    console.log(this.filter.platforms);
   }
 }
