@@ -14,6 +14,7 @@ import { SearchComponent } from './component/search.component';
 import { AddGameComponent } from './component/addgame.component';
 import { AddCategoryComponent } from './component/addcategory.component';
 import { AddDeveloperComponent } from './component/adddeveloper.component';
+import { AdminInterfaceComponent } from './component/admininterface.component';
 
 import { UserService } from './service/user.service';
 import {DeveloperService} from "./service/developer.service";
@@ -33,7 +34,11 @@ const routes: Routes = [
   { path: '', redirectTo: '/register', pathMatch: 'full'},
   { path: 'addcategory', component: AddCategoryComponent},
   { path: 'adddeveloper', component: AddDeveloperComponent},
+<<<<<<< HEAD
   { path: 'game', component: GameComponent}
+=======
+  { path: 'admininterface', component: AdminInterfaceComponent}
+>>>>>>> db8c3d6bdbf885fc5f9cdbd71b99cabf2e16350a
 ]
 
 @NgModule({
@@ -48,7 +53,11 @@ const routes: Routes = [
     AddGameComponent,
     AddCategoryComponent,
     AddDeveloperComponent,
+<<<<<<< HEAD
     GameComponent
+=======
+    AdminInterfaceComponent
+>>>>>>> db8c3d6bdbf885fc5f9cdbd71b99cabf2e16350a
   ],
   imports: [
     BrowserModule,
