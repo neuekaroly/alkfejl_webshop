@@ -16,6 +16,7 @@ import { AddCategoryComponent } from './component/addcategory.component';
 import { AddDeveloperComponent } from './component/adddeveloper.component';
 import { AdminInterfaceComponent } from './component/admininterface.component';
 import { MainComponent } from "./component/main.component";
+import { ShoppingBasketComponent } from "./component/shoppingbasket.component";
 
 import { UserService } from './service/user.service';
 import {DeveloperService} from "./service/developer.service";
@@ -34,11 +35,12 @@ const routes: Routes = [
     { path: 'pricefilter', component: PriceFilterComponent },
     { path: 'search', component: SearchComponent },
     { path: 'addgame', component: AddGameComponent },
-    //{ path: '', redirectTo: '/game', pathMatch: 'full'},
+    // { path: '', redirectTo: '/game', pathMatch: 'full'},
     { path: 'addcategory', component: AddCategoryComponent},
     { path: 'adddeveloper', component: AddDeveloperComponent},
     { path: 'admininterface', component: AdminInterfaceComponent},
-    { path: 'game', component: GameComponent}
+    { path: 'game', component: GameComponent},
+    { path: 'shoppingbasket', component: ShoppingBasketComponent}
   ]}
 ];
 
@@ -56,7 +58,8 @@ const routes: Routes = [
     AddDeveloperComponent,
     GameComponent,
     AdminInterfaceComponent,
-    MainComponent
+    MainComponent,
+    ShoppingBasketComponent
   ],
   imports: [
     BrowserModule,
