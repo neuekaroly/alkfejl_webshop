@@ -1,14 +1,14 @@
 import {UserService} from "../service/user.service";
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  templateUrl: './main.component.html'
 })
-export class AppComponent {
+export class MainComponent {
 
-  constructor(private userService: UserService) {}
+  constructor(private backendService: UserService, private router: Router) {}
 
    goToWebshop(): void {
     //Need to be finished
@@ -19,7 +19,7 @@ export class AppComponent {
   }
 
    goToShoppingBasket(): void {
-    //Need to be finished
+    //Need to be finished 
   }
 
 }
