@@ -10,13 +10,12 @@ import { BasketItem } from '../model/basketitem';
 
 @Injectable()
 export class UserService {
-    userloggedin: string;
+    userloggedin: string;// = "ad6c6cc3-c4de-497f-ae72-4cb56dfe435f";
     isAdmin: boolean;
 
-    basketItems: Array<BasketItem>;
+    basketItems: Array <BasketItem>;
 
     constructor(private http: Http) {
-        this.basketItems = [];
     }
 
     register(user: User): Observable<any> {
@@ -31,8 +30,15 @@ export class UserService {
 
     getBasket(): void {
                this.getCart().subscribe(
-        result => {this.basketItems = result.json(); 
-            console.log(this.basketItems[0])},
+        result => {
+                if(result.json() != null) {
+                    this.basketItems = result.json();
+                }
+                else {
+                    this.basketItems = [];
+                }
+                console.log("getBasket(): ",this.basketItems);
+            },
         error => console.log(error)
        );
     }
@@ -40,20 +46,27 @@ export class UserService {
     addGameToCart(newBasketItem: BasketItem) {
         let isAdded: boolean;
         let i: number;
-        this.getBasket();
-        
+        //this.getBasket();
+        console.log("Before for: ", this.basketItems);
         isAdded = false;
         for(i = 0; i < this.basketItems.length; i++) {
-            if(newBasketItem.gamename === this.basketItems[i].gamename && newBasketItem.platform === this.basketItems[i].platform) {
+            if(newBasketItem.gameid == this.basketItems[i].gameid) {
                 isAdded = true;
                 this.basketItems[i].quantity++;
                 console.log("Is already have this game in the basket");
             }
         }
+        console.log("After for: ", this.basketItems);
         if(!isAdded) {
+            console.log(this.basketItems);
             this.basketItems.push(newBasketItem);
         }
 
+        this.writeCartToDataBase();
+
+    }
+
+    writeCartToDataBase(): void {
         this.addCart(JSON.stringify(this.basketItems)).subscribe(
             result => console.log("Sucess"),
             error => console.log(error.json().message)

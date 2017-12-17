@@ -26,7 +26,7 @@ import {PlatformService} from "./service/platform.service";
 import {GameComponent} from "./component/game.component";
 import {StoreComponent} from "./component/store.component";
 import {FilterComponent} from "./component/filter.component";
-//import {BasketItemComponent} from "./component/basketitem.component"
+import {BasketItemComponent} from "./component/basketitem.component"
 
 
 const routes: Routes = [
@@ -45,7 +45,7 @@ const routes: Routes = [
     { path: 'game', component: GameComponent},
     { path: 'shoppingbasket', component: ShoppingBasketComponent},
     { path: 'store', component: StoreComponent},
-    //{ path: 'basketitem', component: BasketItemComponent}
+    { path: 'basketitem', component: BasketItemComponent}
   ]}
 ];
 
@@ -67,7 +67,7 @@ const routes: Routes = [
     ShoppingBasketComponent,
     StoreComponent,
     FilterComponent,
-    //BasketItemComponent
+    BasketItemComponent
   ],
   imports: [
     BrowserModule,

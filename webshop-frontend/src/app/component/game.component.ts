@@ -26,7 +26,7 @@ export class GameComponent implements OnInit {
 
   addGameToBasket(): void {
     console.log("Try adding the game to the basket");
-    let basketItem = new BasketItem(this.game.gameName,this.game.price,this.game.platform,1);
+    let basketItem = new BasketItem(this.game.gameName,this.game.price,this.game.platform,1, this.game.id);
     this.userService.addGameToCart(basketItem);
   }
 

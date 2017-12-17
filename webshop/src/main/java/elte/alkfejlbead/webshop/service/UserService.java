@@ -33,6 +33,7 @@ public class UserService {
         user.setRole(User.Role.USER);
         user.setToken(UUID.randomUUID().toString());
         user.setPassword(new BCryptPasswordEncoder().encode(user.getPassword()));
+        user.setCart("[]");
         userRepository.save(user);
     }
 

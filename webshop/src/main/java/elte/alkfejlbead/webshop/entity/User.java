@@ -36,7 +36,7 @@ public class User extends BaseEntity {
     private String token;
 
     @Column
-    private String cart;
+    private String cart = "";
 
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)

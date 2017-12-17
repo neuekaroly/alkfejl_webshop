@@ -3,6 +3,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Game } from '../model/game'
 import {GameService} from "../service/game.service";
 import {Filter} from "../model/filter";
+import {UserService} from "../service/user.service";
 
 @Component({
   selector: 'store',
@@ -11,12 +12,14 @@ import {Filter} from "../model/filter";
 
 export class StoreComponent implements OnInit {
 
-  constructor(private gameService: GameService) {}
+  constructor(private gameService: GameService, private userService: UserService) {}
 
   games: Array<Game>;
 
   ngOnInit() {
     this.getAll();
+    this.userService.getBasket();
+    console.log("Store component: ",this.userService.basketItems);
   }
 
   getAll() {
