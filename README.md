@@ -165,3 +165,17 @@ metódusokat, amiket a service osztályok használnak.
 - mysql-connector-java
 - spring-security-crypto
 - spring-boot-starter-aop
+
+# Felhasználói dokumentáció
+
+## Alkalmazás célja
+A Webshop alkalmazás az ELTE Informatikai Kar Alkalmazások fejlesztése tárgyának beadandójaként készült. Célja játék szotfverek eledását támogató oldal. Az alkalmazás egy webes felületet nyújt a felhasználók számára, amely reszponzív is egyben.
+
+## A webes felület
+
+## Főoldal
+A felhasználót (amennyiben nincs bejelntkezve) alapérezlemezeten a login oldal köszönti. Itt lehetőség van a már meglévő felhasználóknak bejelentkezni vagy a "Register" gomb megnyomásával regisztrálni magát az adatbázisba. 
+A bejelentkezés egyszerű folyamat, csak a felhasználónevet és a jelszót kell megadnia a felhasználónak. Amennyiben a bevitt adatok helyesek, a felhasználót a webshop kínálata fogadja. Ha rosszul adott meg adatokat akkor a bejelentkezés oldalon marad a felhasználó.
+
+
+
