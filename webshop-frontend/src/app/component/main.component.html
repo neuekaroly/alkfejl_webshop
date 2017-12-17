@@ -5,6 +5,11 @@
   <a class="navbar-brand" [routerLink]="[STORE]" href="#">Webshop</a>
   <a class="navbar-brand" [routerLink]="[STORE]" href="#">Store</a>
   <a class="navbar-brand" [routerLink]="[SHOPPINGBASKET]" href="#">Basket</a>
+  <a class="navbar-brand" *ngIf = "userService.isAdmin" [routerLink]="[ADDGAME]" href="#">Add game</a>
+  <a class="navbar-brand" *ngIf = "userService.isAdmin" [routerLink]="[ADDDEVELOPER]" href="#">Add developer</a>
+  <a class="navbar-brand" *ngIf = "userService.isAdmin" [routerLink]="[ADDCATEGORY]" href="#">Add category</a>
+  <a class="navbar-brand" [routerLink]="[LOGIN]" (click)="logout()">Log out </a>
+
 </nav>
 <div style="height: 50px;"></div>
 <router-outlet></router-outlet>

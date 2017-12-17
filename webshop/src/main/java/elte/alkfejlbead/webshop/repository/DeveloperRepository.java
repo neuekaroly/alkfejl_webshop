@@ -7,10 +7,14 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 import java.util.Optional;
 
 @Repository
 public interface DeveloperRepository extends CrudRepository<Developer, Integer> {
     @Query("select d from Developer d, IN (d.games) AS g where g.id =:id")
     Optional<Developer> findByGame(@Param("id") Integer id);
+
+    List<Developer> findAll();
 }

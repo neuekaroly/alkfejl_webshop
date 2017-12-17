@@ -3,6 +3,9 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 export const LOGIN = '/login';
 export const REGISTER = '/register';
+export const ADDGAME = '/addgame';
+export const ADDCATEGORY = '/addcategory';
+export const ADDDEVELOPER = '/adddeveloper';
 
 export const MAIN = '';
 export const SHOPPINGBASKET = MAIN + '/shoppingbasket';

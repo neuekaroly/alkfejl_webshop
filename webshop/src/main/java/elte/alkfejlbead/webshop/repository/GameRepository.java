@@ -20,4 +20,7 @@ public interface GameRepository extends CrudRepository<Game, Integer> {
 
     @Query("select g from Game g left join fetch g.categories c where g.gameName like CONCAT('%',:searchTag,'%') AND g.price <= :priceTag AND g.platform IN :platforms AND c.id IN :categories order by g.price ASC")
    List<Game> advancedSearch(@Param("searchTag") String searchTag, @Param("priceTag") Integer priceTag, @Param("platforms") List<Game.Platform> platforms, @Param("categories") List<Integer> categories);
+
+    @Query("select g from Game g where :categoryId in (select c.id from g.categories c)")
+    List<Game> findAllByCategoryId(@Param("categoryId") Integer categoryId);
 }

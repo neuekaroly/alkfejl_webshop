@@ -24,14 +24,18 @@ export class CategoryFilterComponent implements OnInit {
     constructor(private categoryService: CategoryService, private userService: UserService) {}
 
     ngOnInit(): void {
+      this.getCategories();
+    }
+
+    getCategories(): void {
       this.categoryService.getCategories().subscribe(
         result => {
           console.log('Success: ', result),
             this.categories = result.json().items;
-            this.categoryService.allCategoryId = [];
-            for (let i = 0; i < this.categories.length; ++i) {
-              this.categoryService.allCategoryId.push(this.categories[i].id);
-            }
+          this.categoryService.allCategoryId = [];
+          for (let i = 0; i < this.categories.length; ++i) {
+            this.categoryService.allCategoryId.push(this.categories[i].id);
+          }
           console.log(this.categories);
         },
         error => {
@@ -39,8 +43,6 @@ export class CategoryFilterComponent implements OnInit {
         }
       );
     }
-
-
 
     onCategorySelected(event): void {
 
@@ -71,7 +73,10 @@ export class CategoryFilterComponent implements OnInit {
     deleteCategory(event): void {
       console.log(Number(event.target.value));
       this.categoryService.deleteCategory(Number(event.target.value)).subscribe(
-        result => console.log('Success: ', result),
+        result => {
+            console.log('Success: ', result);
+            this.getCategories();
+          },
         error => console.log('Error: ', error.json().message)
       );
     }

@@ -3,6 +3,7 @@ package elte.alkfejlbead.webshop.controller;
 import elte.alkfejlbead.webshop.annotation.Role;
 import elte.alkfejlbead.webshop.entity.Developer;
 import elte.alkfejlbead.webshop.entity.User;
+import elte.alkfejlbead.webshop.model.api.request.ListDTO;
 import elte.alkfejlbead.webshop.service.DeveloperService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -25,6 +26,12 @@ public class DeveloperController {
     @PostMapping("")
     public Developer addDeveloper(HttpServletRequest request, @RequestBody Developer developer) {
         return developerService.addNewDeveloper(developer);
+    }
+
+    @Role(User.Role.ADMIN)
+    @GetMapping("")
+    public ListDTO<Developer> getDevelopers(HttpServletRequest request) {
+        return developerService.getDevelopers();
     }
 
     @Role(User.Role.ADMIN)

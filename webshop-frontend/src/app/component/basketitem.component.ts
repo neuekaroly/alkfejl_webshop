@@ -26,4 +26,19 @@ export class BasketItemComponent implements OnInit {
     this.userService.basketItems.splice(index, 1);
     this.userService.writeCartToDataBase();
   }
+
+  moreGame() {
+    const index = this.userService.basketItems.indexOf(this.basketitem);
+    this.userService.basketItems[index].quantity++;
+    this.userService.writeCartToDataBase();
+  }
+
+  lessGame() {
+    const index = this.userService.basketItems.indexOf(this.basketitem);
+    if(this.userService.basketItems[index].quantity == 1) {
+      this.deleteGame();
+    } 
+    this.userService.basketItems[index].quantity--;
+    this.userService.writeCartToDataBase();
+  }
 }

@@ -2,4 +2,15 @@
   <div *ngIf="basketitems" class="col-sm-9">
         <basketitem *ngFor="let basketitem of basketitems" [basketitem]="basketitem"></basketitem>
   </div>
+  <div *ngIf="basketitems" class="col-sm-9">
+    <div class="card">
+        <div class="card-block">
+        <h4 class="card-title">Total: {{sum}} Ft</h4>
+        </div>
+    </div>
+  </div>
+  <div *ngIf="basketitems" class="col-sm-9">
+    <button type="button" class="btn btn-primary">Order</button>
+  </div>
+
 </div>

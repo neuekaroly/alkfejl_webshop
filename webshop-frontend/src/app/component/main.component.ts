@@ -1,7 +1,7 @@
 import {UserService} from "../service/user.service";
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import {LOGIN, SHOPPINGBASKET, STORE} from '../service/routing.service';
+import {RoutingService, LOGIN, SHOPPINGBASKET, STORE, ADDGAME, ADDCATEGORY, ADDDEVELOPER} from '../service/routing.service';
 
 @Component({
   selector: 'app-root',
@@ -9,10 +9,13 @@ import {LOGIN, SHOPPINGBASKET, STORE} from '../service/routing.service';
 })
 export class MainComponent {
 
-  constructor(private userService: UserService) {}
+  constructor(private userService: UserService, private router: Router) {}
 
   SHOPPINGBASKET = SHOPPINGBASKET;
   STORE = STORE;
+  ADDGAME = ADDGAME;
+  ADDCATEGORY = ADDCATEGORY;
+  ADDDEVELOPER = ADDDEVELOPER;
   LOGIN = LOGIN;
 
   logout() {

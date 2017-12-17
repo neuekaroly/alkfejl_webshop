@@ -10,7 +10,7 @@ import { BasketItem } from '../model/basketitem';
 
 @Injectable()
 export class UserService {
-    userloggedin: string = "8d9125b0-12a1-4bf2-9d76-0a0afe47528a";
+    userloggedin: string;
     isAdmin: boolean;
 
     basketItems: Array <BasketItem>;

@@ -17,12 +17,6 @@ export class FilterComponent {
 
   constructor() {}
 
-  showfilter() {
-    console.log(this.filter.priceTag);
-    console.log(this.filter.searchTag);
-    console.log(this.filter.platforms);
-  }
-
   startAdvancedSearch() {
     this.onAdvancedSearch.emit(this.filter);
   }

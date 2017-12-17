@@ -1,10 +1,12 @@
-<div *ngIf = "basketitem" class="col-sm-8"> 
+<div *ngIf = "basketitem" class="col-sm-12"> 
   <div class="card">
     <div class="card-block">
       <h4 class="card-title">{{basketitem.gamename}}</h4>
       <h6 class="card-subtitle mb-2 text-muted">Price: {{basketitem.price * basketitem.quantity}} </h6>
       <p class="card-text">Quantity: {{basketitem.quantity}}</p>
       <a class="btn btn-danger" (click) = "deleteGame()">Delete</a>
+      <a class="btn btn-primary" (click) = "moreGame()">More</a>
+      <a class="btn btn-primary" (click) = "lessGame()">Less</a>
     </div>
   </div>
 </div>

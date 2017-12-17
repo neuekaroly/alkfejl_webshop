@@ -1,6 +1,7 @@
 package elte.alkfejlbead.webshop.service;
 
 import elte.alkfejlbead.webshop.entity.Developer;
+import elte.alkfejlbead.webshop.model.api.request.ListDTO;
 import elte.alkfejlbead.webshop.repository.DeveloperRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,4 +31,9 @@ public class DeveloperService {
        developerRepository.save(updatedDeveloper);
     }
 
+    public ListDTO<Developer> getDevelopers() {
+       ListDTO<Developer> developerListDTO = new ListDTO<>();
+       developerListDTO.setItems(developerRepository.findAll());
+       return developerListDTO;
+    }
 }

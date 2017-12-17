@@ -1,8 +1,10 @@
  <div>
  <ul *ngIf="categories" class = "list-group">
     <li class = "list-group-item" *ngFor="let c of categories" >
-      <label><input class="form-check-input" (change)="onCategorySelected($event)" type="checkbox" [value]="c.id"> {{c.categoryName}}</label>
-      <button *ngIf = "userService.isAdmin" class="btn btn-danger" style="margin-left: 20px;" (click)="deleteCategory($event)" [value] = "c.id">Delete</button>
+      <label><input class="form-check-input" (change)="onCategorySelected($event)" type="checkbox" [value]="c.id">
+        {{c.categoryName}}
+      </label>
+      <button type="button" *ngIf = "userService.isAdmin" class="btn btn-danger" style="margin-left: 20px;" (click)="deleteCategory($event)" [value] = "c.id">Delete</button>
     </li>
  </ul>
   <!-- <label class = "list-group-item"><input class="form-check-input" (change)="onAboveEighteenChecked($event)" type="checkbox"> 18+ </label>-->
