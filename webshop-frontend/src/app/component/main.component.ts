@@ -1,7 +1,7 @@
 import {UserService} from "../service/user.service";
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import {RoutingService, SHOPPINGBASKET, STORE} from '../service/routing.service';
+import {RoutingService, SHOPPINGBASKET, STORE, ADDGAME, ADDCATEGORY, ADDDEVELOPER} from '../service/routing.service';
 
 @Component({
   selector: 'app-root',
@@ -9,9 +9,11 @@ import {RoutingService, SHOPPINGBASKET, STORE} from '../service/routing.service'
 })
 export class MainComponent {
 
-  constructor(private backendService: UserService, private router: Router) {}
+  constructor(private userService: UserService, private router: Router) {}
 
   SHOPPINGBASKET = SHOPPINGBASKET;
   STORE = STORE;
-
+  ADDGAME = ADDGAME;
+  ADDCATEGORY = ADDCATEGORY;
+  ADDDEVELOPER = ADDDEVELOPER;
 }
