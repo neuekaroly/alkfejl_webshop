@@ -21,7 +21,7 @@ export class CategoryFilterComponent implements OnInit {
     @Input()
     selectedCategories: number[];
 
-    constructor(private categoryService: CategoryService) {}
+    constructor(private categoryService: CategoryService, private userService: UserService) {}
 
     ngOnInit(): void {
       this.categoryService.getCategories().subscribe(
