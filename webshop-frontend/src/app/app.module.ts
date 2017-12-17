@@ -18,7 +18,7 @@ import { AdminInterfaceComponent } from './component/admininterface.component';
 import { MainComponent } from "./component/main.component";
 import { ShoppingBasketComponent } from "./component/shoppingbasket.component";
 
-import { UserService } from './service/user.service';
+import {UserService } from './service/user.service';
 import {DeveloperService} from "./service/developer.service";
 import {GameService} from "./service/game.service";
 import {CategoryService} from "./service/category.service";
@@ -26,6 +26,7 @@ import {PlatformService} from "./service/platform.service";
 import {GameComponent} from "./component/game.component";
 import {StoreComponent} from "./component/store.component";
 import {FilterComponent} from "./component/filter.component";
+//import {BasketItemComponent} from "./component/basketitem.component"
 
 
 const routes: Routes = [
@@ -43,7 +44,8 @@ const routes: Routes = [
     { path: 'admininterface', component: AdminInterfaceComponent},
     { path: 'game', component: GameComponent},
     { path: 'shoppingbasket', component: ShoppingBasketComponent},
-    { path: 'store', component: StoreComponent}
+    { path: 'store', component: StoreComponent},
+    //{ path: 'basketitem', component: BasketItemComponent}
   ]}
 ];
 
@@ -64,7 +66,8 @@ const routes: Routes = [
     MainComponent,
     ShoppingBasketComponent,
     StoreComponent,
-    FilterComponent
+    FilterComponent,
+    //BasketItemComponent
   ],
   imports: [
     BrowserModule,

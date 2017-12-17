@@ -13,10 +13,10 @@ export class UserService {
     userloggedin: string;
     isAdmin: boolean;
 
-    basketItems: BasketItem[];
+    basketItems: Array<BasketItem>;
 
     constructor(private http: Http) {
-       this.basketItems = [];
+        this.basketItems = [];
     }
 
     register(user: User): Observable<any> {
@@ -29,9 +29,19 @@ export class UserService {
         return this.http.post('http://localhost:8080/users/login', user);
     }
 
+    getBasket(): void {
+               this.getCart().subscribe(
+        result => {this.basketItems = result.json(); 
+            console.log(this.basketItems[0])},
+        error => console.log(error)
+       );
+    }
+
     addGameToCart(newBasketItem: BasketItem) {
         let isAdded: boolean;
         let i: number;
+        this.getBasket();
+        
         isAdded = false;
         for(i = 0; i < this.basketItems.length; i++) {
             if(newBasketItem.gamename === this.basketItems[i].gamename && newBasketItem.platform === this.basketItems[i].platform) {
@@ -63,7 +73,7 @@ export class UserService {
       let headers = new Headers();
       headers.append('X-WEBSHOP-TOKEN', this.userloggedin);
       let options = new RequestOptions({headers: headers});
-      return this.http.post('http://localhost:8080/users/login', options);
+      return this.http.get('http://localhost:8080/users/cart', options);
     }
 
     deleteUser(userId: number): Observable<any> {
