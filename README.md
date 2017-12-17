@@ -177,6 +177,13 @@ A Webshop alkalmazás az ELTE Informatikai Kar Alkalmazások fejlesztése tárgy
 A felhasználót (amennyiben nincs bejelntkezve) alapérezlemezeten a login oldal köszönti. Itt lehetőség van a már meglévő felhasználóknak bejelentkezni vagy a "Register" gomb megnyomásával regisztrálni magát az adatbázisba. 
 A bejelentkezés egyszerű folyamat, csak a felhasználónevet és a jelszót kell megadnia a felhasználónak. Amennyiben a bevitt adatok helyesek, a felhasználót a webshop kínálata fogadja. Ha rosszul adott meg adatokat akkor a bejelentkezés oldalon marad a felhasználó.
 A regisztrációra kattintva a felhaználó egy másik oldalra kerül. Itt meg kell adnia a kívánt felhasználónevét, jelszavát, e-mailt címét, keresztnevét, vezetéknevét, és a címét. Minden adatot megadva a Register gomb kiélénkül és aktívá válik. Ezt megnyomva a felhasználó beregisztrálja magát User-ként az adatbázisba. 
-Ha mégis már regisztrált felhasználók vagyunk, akkor van lehetőségünk a "Go to login" gombbal visszaléni a bejelentkező folyamatba.
+Ha mégis már regisztrált felhasználók vagyunk, akkor van lehetőségünk a "Go to login" gombbal visszalépni a bejelentkező folyamatba.
+
+## Store oldal
+Bejelentkezve a felhasználót a store oldal fogadja. Itt tudd kedvére böngészni a neki megfelelő játékok között. Az oldal felépítése angyon egyszerű és letisztult. A fejlécben alapérezlemezeten 4 menüpont van. A Webshop-ra kattintva visszaugrik a storeba, a Store-ra kattintva szintén. A Cart-ra kattinva a felhasználó eléri a bevásárló kosarát. A Log out-ra kattintva pedig kijelentkezik és átdobja a Login oldalra. 
+Adminként plusz két funkcióval bővül a fejléc. Az Add game menüpontban tudd új játékokat felvinni az adatbázsiba, az Add developer-ben tud új fejlesztőket felvinni az adatbázisba, illetve az Add category-val tudd újabb játékkategóriákat felvinni. 
+A Store oldalon lehetőség van játékokra nevük szerint keresni, ez részszavak esetén is működik. Lehet ár szerint filterezni a játékokat. Illetve lehet kategória és platform szerint is szűkiteni. Erre az Advanced search-re kell kattintani.
+A játékokat kártyáján látszódik a játék képe, ára, neve, fejlesztője és kategóriája. Illetve alul alapérezlemezeten egy gomb van ezzel lehet a kosárba rakni a terméket, ahányszor rányom a felhasználó annyi mennyiség kerül a kosárba. Adminként megjelenik egy Delete gomb is amivel a játékot ki lehet törölni az adatbázisból.
+
 
 
