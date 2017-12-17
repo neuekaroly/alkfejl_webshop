@@ -36,7 +36,7 @@
         <label for="picture">Cover</label>
            <input type="file" accept="image/*" class="form-control" name="picture" (change)="encodeAndSetCover($event.target.files[0])" required />
         </div>
-        <button type="submit" class="btn btn-success" [disabled]="!addgameform.valid">Register</button>
-        <button type="button" class="btn btn-info" (click)="goToLogin()">Go to login</button>
+        <button type="submit" class="btn btn-success" [disabled]="!addgameform.valid">Add game</button>
+        <div style="height: 30px;"></div>
     </form>
 </div>

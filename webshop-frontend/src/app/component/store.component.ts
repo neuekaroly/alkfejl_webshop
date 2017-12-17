@@ -15,6 +15,10 @@ export class StoreComponent implements OnInit {
   games: Array<Game>;
 
   ngOnInit() {
+    this.getAll();
+  }
+
+  getAll() {
     this.gameService.getAllGames().subscribe(
       result => this.games = result.json().items,
       error => console.log(error)
@@ -22,10 +26,14 @@ export class StoreComponent implements OnInit {
   }
 
   onSearchGameName(searchTag: string) {
-    this.gameService.searchByGameName(searchTag).subscribe(
-      result => this.games = result.json().items,
-      error => console.log(error)
-    );
+    if(searchTag == '') {
+      this.getAll();
+    } else {
+      this.gameService.searchByGameName(searchTag).subscribe(
+        result => this.games = result.json().items,
+        error => console.log(error)
+      );
+    }
   }
 
 }

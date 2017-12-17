@@ -11,7 +11,7 @@ import {Filter} from "../model/filter";
 
 export class SearchComponent {
 
-    searchtag: string;
+    searchtag: string = '';
 
     @Input()
     filter: Filter;
@@ -27,5 +27,6 @@ export class SearchComponent {
 
     searchByNameTag() {
       this.startSearchByNameTag.emit(this.searchtag);
+      console.log(this.searchtag);
     }
 }

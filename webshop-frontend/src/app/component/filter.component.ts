@@ -12,6 +12,8 @@ export class FilterComponent {
 
   @Output()
   onSearchByNameTag = new EventEmitter<string>();
+  @Output()
+  startSearchByNameTag = new EventEmitter<Filter>();
 
   constructor() {}
 

@@ -3,10 +3,16 @@
     <img class="card-img-top" [src]="game.picture" alt="Card image cap" style="width: 16rem;">
     <div class="card-block">
       <h4 class="card-title">{{game.gameName}}</h4>
-      <p class="card-text">{{game.price}} Ft</p>
+      <hr>
+      <p class="card-text text-primary">Price: {{game.price}} Ft</p>
+      <hr>
+      <p class="card-text">Platform: {{game.platform}}</p>
+      <hr>
       <p class="card-text">Fejlesztő: {{game.developer.developerName}}</p>
+      <hr>
       <p class="card-text">Kategória: {{game.categories[0]?.categoryName}}</p>
       <a href="#" class="btn btn-primary">Add to cart</a>
     </div>
   </div>
+  <div style="height: 20px;"></div>
 </div>
