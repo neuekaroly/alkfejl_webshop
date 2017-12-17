@@ -1,5 +1,6 @@
 package elte.alkfejlbead.webshop.repository;
 
+import elte.alkfejlbead.webshop.model.api.request.FilterDTO;
 import elte.alkfejlbead.webshop.model.api.request.ListDTO;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
@@ -15,4 +16,7 @@ public interface GameRepository extends CrudRepository<Game, Integer> {
     @Query("select g from Game g where g.gameName like CONCAT('%',:searchName,'%') order by g.price ASC")
     List<Game> searchByGameName(@Param("searchName") String searchName);
     List<Game> findAllByOrderByPriceAsc();
+
+    @Query("select g from Game g where g.gameName like CONCAT('%',:searchTag,'%') AND g.price <= :priceTag AND g.platform IN :platforms order by g.price ASC")
+   List<Game> advancedSearch(@Param("searchTag") String searchTag, @Param("priceTag") Integer priceTag, @Param("platforms") List<Game.Platform> platforms);
 }

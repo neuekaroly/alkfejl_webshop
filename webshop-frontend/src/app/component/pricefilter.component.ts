@@ -21,7 +21,6 @@ export class PriceFilterComponent {
 
   getValue (event) {
     this.value = event.target.value;
-    this.filter.priceTag = this.value;
-    //console.log(this.value);
+    this.filter.priceTag = Number(this.value);
   }
 }

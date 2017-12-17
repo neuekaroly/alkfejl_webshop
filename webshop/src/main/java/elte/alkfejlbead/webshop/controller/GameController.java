@@ -3,6 +3,7 @@ package elte.alkfejlbead.webshop.controller;
 import elte.alkfejlbead.webshop.annotation.Role;
 import elte.alkfejlbead.webshop.entity.Game;
 import elte.alkfejlbead.webshop.entity.User;
+import elte.alkfejlbead.webshop.model.api.request.FilterDTO;
 import elte.alkfejlbead.webshop.model.api.request.GameDTO;
 import elte.alkfejlbead.webshop.model.api.request.ListDTO;
 import elte.alkfejlbead.webshop.model.api.response.GameResponseDTO;
@@ -30,12 +31,11 @@ public class GameController {
         gameService.addNewGame(game);
     }
 
-    @Role(User.Role.ADMIN)
+    @Role(User.Role.USER)
     @GetMapping("")
     public ListDTO<GameResponseDTO> getAllGames(HttpServletRequest request) {
         return this.gameService.getAllGames();
     }
-
 
     @Role(User.Role.ADMIN)
     @PostMapping("/{gameId]/developer/{developerId}")
@@ -67,9 +67,15 @@ public class GameController {
         return gameService.getPlatforms();
     }
 
-    @Role()
+    @Role(User.Role.USER)
     @GetMapping("/search/{gameName}")
     public ListDTO<GameResponseDTO> searchByGameName(HttpServletRequest request, @PathVariable String gameName) {
         return gameService.searchByGameName(gameName);
+    }
+
+    @Role(User.Role.USER)
+    @PatchMapping("/advancedsearch")
+    public ListDTO<GameResponseDTO> advancedSearch(HttpServletRequest request, @RequestBody FilterDTO filter) {
+        return gameService.advancedSearch(filter);
     }
 }

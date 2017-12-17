@@ -15,6 +15,6 @@
     <platformfilter [filter] = "filter"></platformfilter>
   </div>
   <hr>
-  <button type="submit" class="btn btn-primary" style="margin-top: 15px;" (startSearchByNameTag) = "onSearchByNameTag.emit($event)">Advanced Search</button>
+  <button type="submit" class="btn btn-primary" style="margin-top: 15px;" (click) = "startAdvancedSearch($event)">Advanced Search</button>
 </div>
 <button (click)="showfilter()" class="btn btn-primary" style="margin-top: 15px;">Filter</button>

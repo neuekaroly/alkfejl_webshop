@@ -27,6 +27,10 @@ export class CategoryFilterComponent implements OnInit {
         result => {
           console.log('Success: ', result),
             this.categories = result.json().items;
+            this.categoryService.allCategoryId = [];
+            for (let i = 0; i < this.categories.length; ++i) {
+              this.categoryService.allCategoryId.push(this.categories[i].id);
+            }
           console.log(this.categories);
         },
         error => {

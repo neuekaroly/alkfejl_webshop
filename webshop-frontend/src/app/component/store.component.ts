@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 
 import { Game } from '../model/game'
 import {GameService} from "../service/game.service";
+import {Filter} from "../model/filter";
 
 @Component({
   selector: 'store',
@@ -26,7 +27,7 @@ export class StoreComponent implements OnInit {
   }
 
   onSearchGameName(searchTag: string) {
-    if(searchTag == '') {
+    if (searchTag === '') {
       this.getAll();
     } else {
       this.gameService.searchByGameName(searchTag).subscribe(
@@ -34,6 +35,13 @@ export class StoreComponent implements OnInit {
         error => console.log(error)
       );
     }
+  }
+
+  onStartAdvancedSearch(filter: Filter) {
+    this.gameService.advancedSearch(filter).subscribe(
+      result => this.games = result.json().items,
+      error => console.log(error)
+    );
   }
 
 }

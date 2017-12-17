@@ -13,7 +13,7 @@ export class FilterComponent {
   @Output()
   onSearchByNameTag = new EventEmitter<string>();
   @Output()
-  startSearchByNameTag = new EventEmitter<Filter>();
+  onAdvancedSearch = new EventEmitter<Filter>();
 
   constructor() {}
 
@@ -21,5 +21,9 @@ export class FilterComponent {
     console.log(this.filter.priceTag);
     console.log(this.filter.searchTag);
     console.log(this.filter.platforms);
+  }
+
+  startAdvancedSearch() {
+    this.onAdvancedSearch.emit(this.filter);
   }
 }

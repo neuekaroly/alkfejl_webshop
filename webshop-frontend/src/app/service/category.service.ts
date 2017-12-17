@@ -10,6 +10,8 @@ import {Category} from "../model/category";
 @Injectable()
 export class CategoryService {
 
+  allCategoryId: Array<number>;
+
   constructor(private http: Http, private userService: UserService) {}
 
   getCategories(): Observable<any> {
