@@ -5,11 +5,15 @@ import {Status} from "./status";
 export class Order {
   orderDate: string;
   orderPrice: number;
-  paymentByDreditCard: boolean;
+  paymentByCreditCard: boolean;
   isDone: boolean;
-  user: User;
-  orderITems: OrderItem[];
+  userId: number;
+  orderItems: OrderItem[];
   status: Status;
 
-  constructor () {}
+  constructor (orderPrice: number, paymentByCreditCard: boolean, orderItems: OrderItem[]) {
+    this.orderPrice = orderPrice;
+    this.paymentByCreditCard = paymentByCreditCard;
+    this.orderItems = orderItems;
+  }
 }

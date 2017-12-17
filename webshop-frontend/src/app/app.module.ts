@@ -17,12 +17,14 @@ import { AddDeveloperComponent } from './component/adddeveloper.component';
 import { AdminInterfaceComponent } from './component/admininterface.component';
 import { MainComponent } from "./component/main.component";
 import { ShoppingBasketComponent } from "./component/shoppingbasket.component";
+import { OrderComponent } from "./component/order.component";
 
 import {UserService } from './service/user.service';
 import {DeveloperService} from "./service/developer.service";
 import {GameService} from "./service/game.service";
 import {CategoryService} from "./service/category.service";
 import {PlatformService} from "./service/platform.service";
+import {OrderService} from "./service/order.service";
 import {GameComponent} from "./component/game.component";
 import {StoreComponent} from "./component/store.component";
 import {FilterComponent} from "./component/filter.component";
@@ -45,7 +47,8 @@ const routes: Routes = [
     { path: 'game', component: GameComponent},
     { path: 'shoppingbasket', component: ShoppingBasketComponent},
     { path: 'store', component: StoreComponent},
-    { path: 'basketitem', component: BasketItemComponent}
+    { path: 'basketitem', component: BasketItemComponent},
+    { path: 'order', component: OrderComponent}
   ]}
 ];
 
@@ -67,7 +70,8 @@ const routes: Routes = [
     ShoppingBasketComponent,
     StoreComponent,
     FilterComponent,
-    BasketItemComponent
+    BasketItemComponent,
+    OrderComponent
   ],
   imports: [
     BrowserModule,
@@ -75,7 +79,7 @@ const routes: Routes = [
     HttpModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [UserService, DeveloperService, CategoryService, GameService, PlatformService],
+  providers: [UserService, DeveloperService, CategoryService, GameService, PlatformService, OrderService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

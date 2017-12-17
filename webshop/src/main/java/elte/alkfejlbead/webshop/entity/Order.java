@@ -32,12 +32,11 @@ public class Order extends BaseEntity {
     @ManyToOne(targetEntity = User.class)
     private User user;
 
-    @OneToMany(targetEntity = OrderItem.class,
-            cascade = CascadeType.ALL)
+    @OneToMany(mappedBy="order", cascade = {CascadeType.ALL})
     private List<OrderItem> orderItems;
 
     @JoinColumn
-    @OneToOne(targetEntity = Status.class)
+    @OneToOne(targetEntity = Status.class, cascade = CascadeType.ALL)
     private Status status;
 
 }
