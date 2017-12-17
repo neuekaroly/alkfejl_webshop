@@ -176,6 +176,7 @@ A Webshop alkalmazás az ELTE Informatikai Kar Alkalmazások fejlesztése tárgy
 ## Főoldal
 A felhasználót (amennyiben nincs bejelntkezve) alapérezlemezeten a login oldal köszönti. Itt lehetőség van a már meglévő felhasználóknak bejelentkezni vagy a "Register" gomb megnyomásával regisztrálni magát az adatbázisba. 
 A bejelentkezés egyszerű folyamat, csak a felhasználónevet és a jelszót kell megadnia a felhasználónak. Amennyiben a bevitt adatok helyesek, a felhasználót a webshop kínálata fogadja. Ha rosszul adott meg adatokat akkor a bejelentkezés oldalon marad a felhasználó.
-
+A regisztrációra kattintva a felhaználó egy másik oldalra kerül. Itt meg kell adnia a kívánt felhasználónevét, jelszavát, e-mailt címét, keresztnevét, vezetéknevét, és a címét. Minden adatot megadva a Register gomb kiélénkül és aktívá válik. Ezt megnyomva a felhasználó beregisztrálja magát User-ként az adatbázisba. 
+Ha mégis már regisztrált felhasználók vagyunk, akkor van lehetőségünk a "Go to login" gombbal visszaléni a bejelentkező folyamatba.
 
 
