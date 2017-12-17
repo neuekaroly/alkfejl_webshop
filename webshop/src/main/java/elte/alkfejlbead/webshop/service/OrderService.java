@@ -2,6 +2,7 @@ package elte.alkfejlbead.webshop.service;
 
 import elte.alkfejlbead.webshop.entity.*;
 import elte.alkfejlbead.webshop.model.api.request.NewOrderDTO;
+import elte.alkfejlbead.webshop.model.api.response.Token;
 import elte.alkfejlbead.webshop.repository.GameRepository;
 import elte.alkfejlbead.webshop.repository.OrderRepository;
 import elte.alkfejlbead.webshop.repository.UserRepository;
@@ -25,27 +26,28 @@ public class OrderService {
         this.gameRepository = gameRepository;
     }
 
-    public void addNewOrder(NewOrderDTO newOrder) {
-        User user = userRepository.findOne(newOrder.getUserID());
+    public void addNewOrder(NewOrderDTO newOrder, String token) {
+        User user = userRepository.findByToken(token);
         List<OrderItem> orderItems = new ArrayList<>();
         Order order = new Order();
         order.setOrderDate(Calendar.getInstance().getTime());
         order.setDone(false);
         order.setUser(user);
-        for (int i = 0; i < newOrder.getGameIds().size(); i++) {
-            OrderItem orderItem = new OrderItem();
-            int gameId = newOrder.getGameIds().get(i);
-            Game game = gameRepository.findOne(gameId);
-            orderItem.setGame(game);
-            orderItem.setQuantity(newOrder.getQuantities().get(i));
-            orderItem.setOrder(order);
-            orderItems.add(orderItem);
+        ArrayList<OrderItem> newOrderItems = new ArrayList<>();
+
+        for(int i = 0; i < newOrder.getOrderItems().size(); i++) {
+            OrderItem newOrderItem = new OrderItem();
+            newOrderItem.setGame(gameRepository.findOne(newOrder.getOrderItems().get(i).getGameId()));
+            newOrderItem.setQuantity(newOrder.getOrderItems().get(i).getQuantity());
+            newOrderItems.add(newOrderItem);
+            newOrderItem.setOrder(order);
         }
+        order.setOrderItems(newOrderItems);
         order.setPaymentByCreditCard(newOrder.isPaymentByCreditCard());
         Status status = new Status();
         order.setStatus(status);
         status.setOrder(order);
-        order.setOrderItems(orderItems);
+        order.setOrderPrice(newOrder.getOrderPrice());
         orderRepository.save(order);
     }
 

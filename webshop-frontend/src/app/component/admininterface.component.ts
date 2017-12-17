@@ -12,7 +12,7 @@ export class AdminInterfaceComponent {
 
   constructor(private backendService: UserService, private router: Router) {}
 
-    goToAddGame(): void {
+  goToAddGame(): void {
     this.router.navigate(['/addgame']);
   }
 
@@ -22,9 +22,5 @@ export class AdminInterfaceComponent {
 
   goToAddDeveloper(): void {
     this.router.navigate(['/adddeveloper']);
-  }
-
-  goToManageUsers(): void {
-    //Must be finished
   }
 }

@@ -1,7 +1,9 @@
 <div class="container">
-  <div *ngIf="basketitems" class="col-sm-9">
-        <basketitem *ngFor="let basketitem of basketitems" [basketitem]="basketitem"></basketitem>
+  <div *ngIf="userService.basketItems" class="col-sm-9">
+        <basketitem *ngFor="let basketitem of userService.basketItems" [basketitem]="basketitem"></basketitem>
   </div>
+
+  <!--
   <div *ngIf="basketitems" class="col-sm-9">
     <div class="card">
         <div class="card-block">
@@ -9,8 +11,20 @@
         </div>
     </div>
   </div>
-  <div *ngIf="basketitems" class="col-sm-9">
-    <button type="button" class="btn btn-primary">Order</button>
+  -->
+
+  <div *ngIf="userService.basketItems.length" class="checkbox" class="col-sm-9">
+    <label><input type="checkbox" value="" (change) = "paymentByCreditCardChecked($event)">Pay with credit card</label>
   </div>
+  
+  <div *ngIf="userService.basketItems.length" class="col-sm-9">
+    <button type="button" class="btn btn-primary" (click) = "orderTheShoppingBasket()">Next</button>
+  </div>
+
+  <h1 *ngIf="!userService.basketItems.length" class="checkbox" class="col-sm-9">
+    Your basket is empty
+  </h1>
+
+  <button *ngIf="!userService.basketItems.length" type="button" class="btn btn-info" (click)="goToShop()" >Go to Webshop</button>
 
 </div>
