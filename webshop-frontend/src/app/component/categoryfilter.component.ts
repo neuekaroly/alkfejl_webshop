@@ -13,6 +13,7 @@ import {Filter} from "../model/filter";
 
 export class CategoryFilterComponent implements OnInit {
     categories: Category[];
+    checked: boolean;
 
     @Input()
     filter: Filter;
@@ -55,6 +56,14 @@ export class CategoryFilterComponent implements OnInit {
       } else {
         const indexOfValueToBeDeleted = activeSelectedCategories.indexOf(event.target.value);
         activeSelectedCategories.splice(indexOfValueToBeDeleted, 1);
+      }
+    }
+
+    onAboveEighteenChecked(event) {
+      if (event.target.checked) {
+        this.checked = true;
+      } else {
+        this.checked = false;
       }
     }
 }

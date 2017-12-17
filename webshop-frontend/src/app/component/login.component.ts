@@ -14,15 +14,21 @@ export class LoginComponent {
 
   user: User = new User();
 
-  constructor(private backendService: UserService, private router: Router) {}
+  constructor(private userService: UserService, private router: Router) {}
 
   login(): void {
-    this.backendService.login(this.user).subscribe(
+    this.userService.login(this.user).subscribe(
       result => {
          console.log('Success: ', result),
-         this.backendService.userloggedin = result.json().token;
-         console.log(this.backendService.userloggedin);
-        this.router.navigate(['/admininterface']);
+         this.userService.userloggedin = result.json().token;
+         if (result.json().role === 'ADMIN') {
+           this.userService.isAdmin = true;
+         } else {
+           this.userService.isAdmin = false;
+         }
+         console.log(this.userService.userloggedin);
+         console.log(this.userService.isAdmin);
+        this.router.navigate(['/store']);
       },
       error => {
         console.log('Error: ', error.json().message);

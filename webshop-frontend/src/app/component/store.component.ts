@@ -44,4 +44,12 @@ export class StoreComponent implements OnInit {
     );
   }
 
+  startDeleteGameById(id: number) {
+    this.gameService.deleteGame(id).subscribe(
+      result => {console.log('Delete successfull');
+        this.getAll(); },
+      error => console.log(error)
+    );
+  }
+
 }

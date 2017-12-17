@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" style="margin-top: 25px;">
     <form #registrationForm="ngForm" (ngSubmit)="register()">
         <div class="form-group">
             <label for="username">Username</label>
@@ -27,13 +27,4 @@
         <button type="submit" class="btn btn-success" [disabled]="!registrationForm.valid">Register</button>
         <button type="button" class="btn btn-info" (click)="goToLogin()">Go to login</button>
     </form>
-
-    <select class="form-control" (change)="selectname3($event)" #usernameselect>
-        <option *ngFor="let u of userList" [value]="u.username" >{{u.username}}</option>
-    </select>
-
-    {{selectedUserName}}
-
-    <div *ngIf="usernameselect.value == 'name3'" class="alert alert-info">Valami szöveg, ha a selected user a name3 nevű</div>
-    
 </div>

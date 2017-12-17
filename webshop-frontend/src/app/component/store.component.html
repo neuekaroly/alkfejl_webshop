@@ -3,6 +3,6 @@
     <filter class="col-sm-3" (onSearchByNameTag) = "onSearchGameName($event)" (onAdvancedSearch) = "onStartAdvancedSearch($event)"></filter>
   </div>
   <div *ngIf="games" class="col-sm-9">
-    <game *ngFor="let game of games" [game]="game"></game>
+    <game *ngFor="let game of games" [game]="game" (deleteGameById)="startDeleteGameById($event)"></game>
   </div>
 </div>

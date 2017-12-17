@@ -57,4 +57,11 @@ export class GameService {
     let options = new RequestOptions({headers: headers});
     return this.http.patch('http://localhost:8080/games/advancedsearch', filter, options);
   }
+
+  deleteGame(id: number) {
+    let headers = new Headers();
+    headers.append('X-WEBSHOP-TOKEN', this.userService.userloggedin);
+    let options = new RequestOptions({headers: headers});
+    return this.http.delete('http://localhost:8080/games/' + id, options);
+  }
 }

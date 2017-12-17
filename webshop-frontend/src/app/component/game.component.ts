@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 import { UserService } from '../service/user.service';
 
@@ -17,6 +17,9 @@ export class GameComponent implements OnInit {
   @Input()
   game: Game;
 
+  @Output()
+  deleteGameById = new EventEmitter<number>();
+
   constructor(private gameService: GameService, private userService: UserService) {}
 
   ngOnInit() {}
@@ -25,5 +28,10 @@ export class GameComponent implements OnInit {
     console.log("Try adding the game to the basket");
     let basketItem = new BasketItem(this.game.gameName,this.game.price,this.game.platform,1);
     this.userService.addGameToCart(basketItem);
+  }
+
+  deleteGame(): void {
+    this.deleteGameById.emit(this.game.id);
+    console.log(this.game.id);
   }
 }

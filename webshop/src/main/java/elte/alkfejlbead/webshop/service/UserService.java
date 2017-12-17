@@ -26,7 +26,7 @@ public class UserService {
         if(dbUser == null || !new BCryptPasswordEncoder().matches(user.getPassword(), dbUser.getPassword())) {
             throw new UserNotValidException();
         }
-        return new Token(dbUser.getToken());
+        return new Token(dbUser.getToken(), dbUser.getRole());
     }
 
     public void register(User user) {

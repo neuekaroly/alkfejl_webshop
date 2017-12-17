@@ -2,6 +2,7 @@ import {Developer} from "./developer";
 import {Category} from "./category";
 
 export class Game {
+    id: number;
     gameName: string;
     releaseDate: string;
     description: string;

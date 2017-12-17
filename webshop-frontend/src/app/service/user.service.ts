@@ -10,7 +10,8 @@ import { BasketItem } from '../model/basketitem';
 
 @Injectable()
 export class UserService {
-    userloggedin: string = '9f57cd1c-6655-4a3c-9974-b020e429933d';
+    userloggedin: string;
+    isAdmin: boolean;
 
     basketItems: BasketItem[];
 
@@ -29,11 +30,11 @@ export class UserService {
     }
 
     addGameToCart(newBasketItem: BasketItem) {
-        var isAdded: boolean;
-        var i:number;
+        let isAdded: boolean;
+        let i: number;
         isAdded = false;
         for(i = 0; i < this.basketItems.length; i++) {
-            if(newBasketItem.gamename == this.basketItems[i].gamename && newBasketItem.platform == this.basketItems[i].platform) {
+            if(newBasketItem.gamename === this.basketItems[i].gamename && newBasketItem.platform === this.basketItems[i].platform) {
                 isAdded = true;
                 this.basketItems[i].quantity++;
                 console.log("Is already have this game in the basket");
@@ -50,7 +51,7 @@ export class UserService {
     }
 
     addCart(cart: string): Observable<any> {
-      console.log('Add cart:',cart);
+      console.log('Add cart:', cart);
       let headers = new Headers();
       headers.append('X-WEBSHOP-TOKEN', this.userloggedin);
       let options = new RequestOptions({headers: headers});

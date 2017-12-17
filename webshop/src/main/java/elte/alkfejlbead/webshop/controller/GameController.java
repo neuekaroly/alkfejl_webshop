@@ -61,7 +61,7 @@ public class GameController {
         gameService.updateGame(game);
     }
 
-    @Role(User.Role.ADMIN)
+    @Role(User.Role.USER)
     @GetMapping("/platforms")
     public ListDTO<Game.Platform> getPlatforms(HttpServletRequest request) {
         return gameService.getPlatforms();

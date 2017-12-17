@@ -10,6 +10,7 @@ import java.util.List;
 
 @Data
 public class GameResponseDTO {
+    private int id;
     private String gameName;
     private String releaseDate;
     private String description;
@@ -21,7 +22,7 @@ public class GameResponseDTO {
     private List<Category> categories;
 
     public GameResponseDTO(Game game) {
-
+        this.id = game.getId();
         this.gameName = game.getGameName();
         this.releaseDate = game.getReleaseDate();
         this.description = game.getDescription();
