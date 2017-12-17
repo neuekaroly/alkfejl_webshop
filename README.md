@@ -210,25 +210,33 @@ Ha kártyával kíván fizetni azt be tudja jelölni itt, és megtudja redelni a
 ## Frontend 
 A modellek megegyeznek a backendbe lévőekkel
 -BasketItem
+
 ![Frontend](docs/pictures/basketitem.JPG)
 
 -Category
+
 ![Frontend](docs/pictures/category.JPG)
 
 -Developer
+
 ![Frontend](docs/pictures/developer.JPG)
 
 -Game
+
 ![Frontend](docs/pictures/game.JPG)
 
 -Order
+
 ![Frontend](docs/pictures/order.JPG)
 
 -OrderItem
+
 ![Frontend](docs/pictures/orderitem.JPG)
 
 -Status
+
 ![Frontend](docs/pictures/status.JPG)
 
 -User
+
 ![Frontend](docs/pictures/user.JPG)
