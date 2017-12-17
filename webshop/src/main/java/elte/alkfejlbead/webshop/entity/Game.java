@@ -45,8 +45,8 @@ public class Game extends BaseEntity {
     @ManyToOne
     private Developer developer;
 
-    @JoinColumn
-    @ManyToMany(targetEntity = Category.class)
+    @JoinTable(name="games_categories", joinColumns = {@JoinColumn(name="game_id")}, inverseJoinColumns = {@JoinColumn(name="category_id")})
+    @ManyToMany
     List<Category> categories;
 
     public enum Platform {

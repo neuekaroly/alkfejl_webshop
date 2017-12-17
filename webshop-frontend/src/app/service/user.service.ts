@@ -10,7 +10,7 @@ import { BasketItem } from '../model/basketitem';
 
 @Injectable()
 export class UserService {
-    userloggedin: string;// = "ad6c6cc3-c4de-497f-ae72-4cb56dfe435f";
+    userloggedin: string = "8d9125b0-12a1-4bf2-9d76-0a0afe47528a";
     isAdmin: boolean;
 
     basketItems: Array <BasketItem>;
@@ -26,6 +26,11 @@ export class UserService {
     login(user: User): Observable<any> {
         console.log('Login', user);
         return this.http.post('http://localhost:8080/users/login', user);
+    }
+
+    logout() {
+      this.userloggedin = '';
+      this.isAdmin = false;
     }
 
     getBasket(): void {

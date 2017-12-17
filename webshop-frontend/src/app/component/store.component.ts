@@ -4,6 +4,7 @@ import { Game } from '../model/game'
 import {GameService} from "../service/game.service";
 import {Filter} from "../model/filter";
 import {UserService} from "../service/user.service";
+import {CategoryService} from "../service/category.service";
 
 @Component({
   selector: 'store',
@@ -12,7 +13,7 @@ import {UserService} from "../service/user.service";
 
 export class StoreComponent implements OnInit {
 
-  constructor(private gameService: GameService, private userService: UserService) {}
+  constructor(private gameService: GameService, private userService: UserService, private categoryService: CategoryService) {}
 
   games: Array<Game>;
 
@@ -41,7 +42,7 @@ export class StoreComponent implements OnInit {
   }
 
   onStartAdvancedSearch(filter: Filter) {
-    this.gameService.advancedSearch(filter).subscribe(
+    this.gameService.advancedSearch(JSON.parse(JSON.stringify(filter))).subscribe(
       result => this.games = result.json().items,
       error => console.log(error)
     );
@@ -53,6 +54,10 @@ export class StoreComponent implements OnInit {
         this.getAll(); },
       error => console.log(error)
     );
+  }
+
+  deleteCategoryById(catId: number) {
+
   }
 
 }

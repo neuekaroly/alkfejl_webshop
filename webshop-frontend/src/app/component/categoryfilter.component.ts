@@ -41,6 +41,7 @@ export class CategoryFilterComponent implements OnInit {
     }
 
 
+
     onCategorySelected(event): void {
 
       let activeSelectedCategories: Array<number>;
@@ -65,5 +66,13 @@ export class CategoryFilterComponent implements OnInit {
       } else {
         this.checked = false;
       }
+    }
+
+    deleteCategory(event): void {
+      console.log(Number(event.target.value));
+      this.categoryService.deleteCategory(Number(event.target.value)).subscribe(
+        result => console.log('Success: ', result),
+        error => console.log('Error: ', error.json().message)
+      );
     }
 }

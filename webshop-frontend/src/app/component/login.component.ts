@@ -32,7 +32,7 @@ export class LoginComponent {
       },
       error => {
         console.log('Error: ', error.json().message);
-        this.router.navigate(['/addgame']);
+        this.router.navigate(['/login']);
       }
     );
   }

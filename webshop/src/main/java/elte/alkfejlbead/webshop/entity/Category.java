@@ -25,7 +25,7 @@ public class Category extends BaseEntity {
     private boolean aboveEighteen;
 
     @JsonIgnore
-    @JoinColumn
-    @ManyToMany(targetEntity = Game.class)
+    @ManyToMany(mappedBy = "categories")
     List<Game> games;
+
 }

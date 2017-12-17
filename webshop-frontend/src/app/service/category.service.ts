@@ -27,4 +27,11 @@ export class CategoryService {
     let options = new RequestOptions({headers: headers});
     return this.http.post('http://localhost:8080/categories', category, options);
   }
+
+  deleteCategory(id: number): Observable<any> {
+    let headers = new Headers();
+    headers.append('X-WEBSHOP-TOKEN', this.userService.userloggedin);
+    let options = new RequestOptions({headers: headers});
+    return this.http.delete('http://localhost:8080/categories/' + id , options);
+  }
 }

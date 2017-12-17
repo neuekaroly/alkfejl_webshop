@@ -9,32 +9,20 @@ import { User } from '../model/user';
   selector: 'registration',
   templateUrl: './registration.component.html'
 })
-export class RegistrationComponent implements OnInit {
+export class RegistrationComponent {
 
   user: User = new User();
-
-  userList: User[] = new Array<User>();
 
   selectedUserName: string;
 
   constructor(private backendService: UserService, private router: Router) {}
 
-  ngOnInit(): void {
-
-    const names = ['name1', 'name2', 'name3'];
-    for (const name of names) {
-      const tempUser: User = new User();
-      tempUser.username = name;
-      this.userList.push(tempUser);
-    }
-  }
-
   register(): void {
     this.backendService.register(this.user).subscribe(
-      result => console.log('Success: ', result),
+      result => {console.log('Success: ', result);
+      this.goToLogin();},
       error => {
         console.log('Error: ', error.json().message);
-        this.router.navigate(['/login']);
       }
     );
   }

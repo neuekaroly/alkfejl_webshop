@@ -1,5 +1,6 @@
 package elte.alkfejlbead.webshop.service;
 
+import elte.alkfejlbead.webshop.entity.Category;
 import elte.alkfejlbead.webshop.entity.Developer;
 import elte.alkfejlbead.webshop.entity.Game;
 import elte.alkfejlbead.webshop.model.api.request.FilterDTO;
@@ -107,7 +108,7 @@ public class GameService {
 
     public ListDTO<GameResponseDTO> getAllGames() {
         ListDTO<GameResponseDTO> games = new ListDTO<>();
-        List<Game> dbGames = gameRepository.findAllByOrderByPriceAsc();;
+        List<Game> dbGames = gameRepository.findAllByOrderByPriceAsc();
         for (Game dbGame : dbGames) {
 
             GameResponseDTO game = new GameResponseDTO(dbGame);
@@ -120,7 +121,7 @@ public class GameService {
     public ListDTO<GameResponseDTO> advancedSearch(FilterDTO filter) {
         ListDTO<GameResponseDTO> games = new ListDTO<>();
        // List<Game> dbGames = gameRepository.advancedSearch(filter.getSearchTag(),filter.getPriceTag(),filter.getCategories(),filter.getPlatforms());
-        List<Game> dbGames = gameRepository.advancedSearch(filter.getSearchTag(), filter.getPriceTag(), filter.getPlatforms());
+        List<Game> dbGames = gameRepository.advancedSearch(filter.getSearchTag(), filter.getPriceTag(), filter.getPlatforms(), filter.getCategories());
         for (Game dbGame : dbGames) {
 
             GameResponseDTO game = new GameResponseDTO(dbGame);
