@@ -197,3 +197,12 @@ Itt ha nem rakott a felhasználó a kosarába még semmit egy üzenet és egy go
 Ha vannak a kosarába termékek akko azokat itt felsolva látja a mennyiségével együtt amit növelni és csökkenteni tudd a megfelelő gombokkal. Illet törölni is tudja azokat.
 
 Ha kártyával kíván fizetni azt be tudja jelölni itt, és megtudja redelni a termékeket. 
+
+## Frontend könyvtárstruktúra
+![Frontend](docs/pictures/dir_frontend.JPG)
+
+## Frontend szervízek
+![Frontend](docs/pictures/frontend_service.JPG)
+
+## Frontend modellek
+![Frontend](docs/pictures/frontend_modell.JPG)
