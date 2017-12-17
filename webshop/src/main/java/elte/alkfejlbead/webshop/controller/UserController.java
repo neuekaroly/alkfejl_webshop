@@ -37,7 +37,7 @@ public class UserController {
     @Role(User.Role.USER)
     @PostMapping("/cart")
     public void addCart(HttpServletRequest request, @RequestBody String cart) throws UserNotValidException {
-        userService.setCart(cart,request.getHeader(Token.TOKEN));
+        userService.setCart(request.getHeader(Token.TOKEN),cart);
     }
 
     @Role(User.Role.USER)

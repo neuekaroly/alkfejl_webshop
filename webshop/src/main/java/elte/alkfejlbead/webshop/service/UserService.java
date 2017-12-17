@@ -36,12 +36,13 @@ public class UserService {
         userRepository.save(user);
     }
 
-    public void setCart(String cart, String token) throws UserNotValidException {
+    public void setCart(String token, String cart) throws UserNotValidException {
         User user = userRepository.findByToken(token);
         if (user == null) {
             throw new UserNotValidException();
         }
         user.setCart(cart);
+        userRepository.save(user);
     }
 
     public String getCart(String token) throws UserNotValidException {

@@ -11,7 +11,7 @@
       <p class="card-text">Fejlesztő: {{game.developer.developerName}}</p>
       <hr>
       <p class="card-text">Kategória: {{game.categories[0]?.categoryName}}</p>
-      <a href="#" class="btn btn-primary">Add to cart</a>
+      <a class="btn btn-primary" (click)="addGameToBasket()">Add to cart</a>
     </div>
   </div>
   <div style="height: 20px;"></div>
