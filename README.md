@@ -206,3 +206,14 @@ Ha kártyával kíván fizetni azt be tudja jelölni itt, és megtudja redelni a
 
 ## Frontend modellek
 ![Frontend](docs/pictures/frontend_modell.JPG)
+
+## Frontend 
+A modellek megegyeznek a backendbe lévőekkel
+-![Frontend](docs/pictures/basketitem.JPG)
+-![Frontend](docs/pictures/category.JPG)
+-![Frontend](docs/pictures/developer.JPG)
+-![Frontend](docs/pictures/game.JPG)
+-![Frontend](docs/pictures/order.JPG)
+-![Frontend](docs/pictures/orderitem.JPG)
+-![Frontend](docs/pictures/status.JPG)
+-![Frontend](docs/pictures/user.JPG)
