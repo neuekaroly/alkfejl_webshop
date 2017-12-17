@@ -4,7 +4,7 @@
   </button>
   <a class="navbar-brand" [routerLink]="[STORE]" href="#">Webshop</a>
   <a class="navbar-brand" [routerLink]="[STORE]" href="#">Store</a>
-  <a class="navbar-brand" [routerLink]="[SHOPPINGBASKET]" href="#">Basket</a>
+  <a class="navbar-brand" [routerLink]="[SHOPPINGBASKET]" >Cart</a>
   <a class="navbar-brand" *ngIf = "userService.isAdmin" [routerLink]="[ADDGAME]" href="#">Add game</a>
   <a class="navbar-brand" *ngIf = "userService.isAdmin" [routerLink]="[ADDDEVELOPER]" href="#">Add developer</a>
   <a class="navbar-brand" *ngIf = "userService.isAdmin" [routerLink]="[ADDCATEGORY]" href="#">Add category</a>
