@@ -241,12 +241,12 @@ A modellek megegyeznek a backendbe lévőekkel
 
 ![Frontend](docs/pictures/user.JPG)
 
-##Egy funkció leírása - Kosárba helyezés
+## Egy funkció leírása - Kosárba helyezés
 A kosárba helyezésre kkatintva meghívódik a game.component.ts-ben a addGameToBasket() metódus. 
 Ez létrehozz egy basketitemet és meghívja a userservice adgametocart metódusát.
 Ez a metódús a writeCartToDataBase metóduson keresztül subscriebol az addCart-ra ami végül POST kéréssel elküldi a backendnek az adatot, és így bekerül a kosárba
 
-##Kapcsolat a szerverrel
+## Kapcsolat a szerverrel
 A szerver-kliens kapcsolatot kizárólag a servicek végzik. Ezek kezelik a megfelelő POST és GET kéréseket. A fennt felsorolt modellek nevei pontosan megegyeznek a backendben lévőekkel a megfelelő működés érdekében.
 
 ## Alkalmazás tovább fejlesztése
