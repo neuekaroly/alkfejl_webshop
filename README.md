@@ -3,18 +3,15 @@
 Egy konzol és PC-s játékokat árusító cég online webáruháza. A weboldalon keresztül a felhasználók játékokat tudnak rendelni. 
 
 ## Funkcionális követelmények
-- Minden oldalon megjelenik egy kereső, ahol a termékek között lehet böngészni
+- A wehshopban lehetőség van keresésre
 - Lehetőség nyílik platform szerint szűkíteni a keresést
-- A felhasználó szűkítheti a keresését ár, megjelenés, kategória szerint
-- Egy oldalon legfeljebb 25 termék jelenik meg, az címével, árával, gyártóval és megjelenési dátumával
-- Egy termékre kattintva megjelenik a részletes leírása, gépigénye stb.
+- A felhasználó szűkítheti a keresését ár, kategória szerint
+- Egy oldalon legfeljebb 25 termék jelenik meg, az címével, árával, gyártóval
 - A felhasználó kosarába tudja helyezni a kiválasztott terméket, akár egyszerre többet is
 - A kosárból a termékek bármikor törölhetőek, illetve darabszámot is adhat meg
 - A rendelés előtt a felhasználó még egyszer áttekintheti a kosár tartalmát
-- Adatai leadásával vagy regisztrált felhasználó esetén bejelentkezéssel adhatja le a rendelését(feltéve ha megadott minden szükséges adatot)
+- Csak regisztrált felhasználó adhatja le a rendelését
 - A regisztráció során a rendszer elmenti az adatokat, és azok helyes megadásával a felhasználó később bejelentkezhet a rendszerbe
-- Lehetőség van kupon beváltására is, ezt a felhasználónak a rendelése leadása során jeleznie kell
-- A főoldalon megjelenek a legújabb illetve a legkeresettebb játékok is
 - Lehetőség van bankkártyás és utánvételes fizetésre is
 
 ## Nem funkcionális követelmények
@@ -31,9 +28,8 @@ Egy konzol és PC-s játékokat árusító cég online webáruháza. A weboldalo
 	- Typescript
 	
 ## Szerepkörök
-- Adminisztrátor: frissítheti az adatbázis illetve felhasználókat törölhet a rendszerből, megtekintheti a a felhasználók által leadott rendeléseket és moderálhatja a termék értékeléseket
-- Felhasználó: rendeléseket adhat le és nyomon követheti azokat, értékelheti a terméket
-- Látogató: nem regisztrált, de ugyanúgy rendelhet, viszont értékelést nem írhat
+- Adminisztrátor: frissítheti az adatbázis 
+- Felhasználó: rendeléseket adhat le
 
 ## Fejlesztői környezet
 - IntelliJ IDEA
@@ -169,3 +165,94 @@ metódusokat, amiket a service osztályok használnak.
 - mysql-connector-java
 - spring-security-crypto
 - spring-boot-starter-aop
+
+# Felhasználói dokumentáció
+
+## Alkalmazás célja
+A Webshop alkalmazás az ELTE Informatikai Kar Alkalmazások fejlesztése tárgyának beadandójaként készült. Célja játék szotfverek eledását támogató oldal. Az alkalmazás egy webes felületet nyújt a felhasználók számára, amely reszponzív is egyben.
+
+## A webes felület
+
+## Főoldal
+A felhasználót (amennyiben nincs bejelntkezve) alapérezlemezeten a login oldal köszönti. Itt lehetőség van a már meglévő felhasználóknak bejelentkezni vagy a "Register" gomb megnyomásával regisztrálni magát az adatbázisba. 
+
+A bejelentkezés egyszerű folyamat, csak a felhasználónevet és a jelszót kell megadnia a felhasználónak. Amennyiben a bevitt adatok helyesek, a felhasználót a webshop kínálata fogadja. Ha rosszul adott meg adatokat akkor a bejelentkezés oldalon marad a felhasználó.
+
+A regisztrációra kattintva a felhaználó egy másik oldalra kerül. Itt meg kell adnia a kívánt felhasználónevét, jelszavát, e-mailt címét, keresztnevét, vezetéknevét, és a címét. Minden adatot megadva a Register gomb kiélénkül és aktívá válik. Ezt megnyomva a felhasználó beregisztrálja magát User-ként az adatbázisba. 
+
+Ha mégis már regisztrált felhasználók vagyunk, akkor van lehetőségünk a "Go to login" gombbal visszalépni a bejelentkező folyamatba.
+
+## Store oldal
+Bejelentkezve a felhasználót a store oldal fogadja. Itt tudd kedvére böngészni a neki megfelelő játékok között. Az oldal felépítése angyon egyszerű és letisztult. A fejlécben alapérezlemezeten 4 menüpont van. A Webshop-ra kattintva visszaugrik a storeba, a Store-ra kattintva szintén. A Cart-ra kattinva a felhasználó eléri a bevásárló kosarát. A Log out-ra kattintva pedig kijelentkezik és átdobja a Login oldalra. 
+
+Adminként plusz két funkcióval bővül a fejléc. Az Add game menüpontban tudd új játékokat felvinni az adatbázsiba, az Add developer-ben tud új fejlesztőket felvinni az adatbázisba, illetve az Add category-val tudd újabb játékkategóriákat felvinni. 
+
+A Store oldalon lehetőség van játékokra nevük szerint keresni, ez részszavak esetén is működik. Lehet ár szerint filterezni a játékokat. Illetve lehet kategória és platform szerint is szűkiteni. Erre az Advanced search-re kell kattintani.
+
+A játékokat kártyáján látszódik a játék képe, ára, neve, fejlesztője és kategóriája. Illetve alul alapéretelmezeten egy gomb van, ezzel lehet a kosárba rakni a terméket, ahányszor rányom a felhasználó annyi mennyiség kerül a kosárba. Adminként megjelenik egy Delete gomb is amivel a játékot ki lehet törölni az adatbázisból.
+
+##Basket oldal
+Itt ha nem rakott a felhasználó a kosarába még semmit egy üzenet és egy gomb fogadja, amivel visszatudd navigálni a store-ba.
+
+Ha vannak a kosarába termékek akkor azokat itt felsolva látja a mennyiségével együtt amit növelni és csökkenteni tudd a megfelelő gombokkal. Illet törölni is tudja azokat.
+
+Ha kártyával kíván fizetni azt be tudja jelölni itt, és megtudja redelni a termékeket a gombra kattintva. 
+
+## Frontend könyvtárstruktúra
+![Frontend](docs/pictures/dir_frontend.JPG)
+
+## Frontend szervízek
+![Frontend](docs/pictures/frontend_service.JPG)
+
+## Frontend modellek
+![Frontend](docs/pictures/frontend_modell.JPG)
+
+## Frontend 
+A modellek megegyeznek a backendbe lévőekkel
+- BasketItem
+
+![Frontend](docs/pictures/basketitem.JPG)
+
+- Category
+
+![Frontend](docs/pictures/category.JPG)
+
+- Developer
+
+![Frontend](docs/pictures/developer.JPG)
+
+- Game
+
+![Frontend](docs/pictures/game.JPG)
+
+- Order
+
+![Frontend](docs/pictures/order.JPG)
+
+- OrderItem
+
+![Frontend](docs/pictures/orderitem.JPG)
+
+- Status
+
+![Frontend](docs/pictures/status.JPG)
+
+- User
+
+![Frontend](docs/pictures/user.JPG)
+
+## Egy funkció leírása - Kosárba helyezés
+A kosárba helyezésre kkatintva meghívódik a game.component.ts-ben a addGameToBasket() metódus. 
+Ez létrehozz egy basketitemet és meghívja a userservice adgametocart metódusát.
+Ez a metódús a writeCartToDataBase metóduson keresztül subscriebol az addCart-ra ami végül POST kéréssel elküldi a backendnek az adatot, és így bekerül a kosárba
+
+## Kapcsolat a szerverrel
+A szerver-kliens kapcsolatot kizárólag a servicek végzik. Ezek kezelik a megfelelő POST és GET kéréseket. A fennt felsorolt modellek nevei pontosan megegyeznek a backendben lévőekkel a megfelelő működés érdekében.
+
+## Alkalmazás tovább fejlesztése
+- Regisztráció nélkül is lehessen böngészni
+- Rendeléseink állapotát ellenőrízni
+- Minden játéknak külön adatlap
+- Admin oldalról kezelni a usereket
+- Admin oldalról kezelni a rendeléseket
+- Felhasználó saját adatait módosíthatja
