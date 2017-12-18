@@ -14,7 +14,7 @@
         </div>
         <div class="form-group">
              <label for="platform">Platform</label>
-             <input type="text" class="form-control" name="platfrom" [(ngModel)]="game.platform" required />
+             <input type="text" class="form-control" name="platform" [(ngModel)]="game.platform" required />
         </div>
          <div class="form-group">
              <label for="price">Price</label>
@@ -26,7 +26,7 @@
          </div>
         <div class="form-group">
            <label for="developer">Developer</label>
-           <select type="text" class="form-control" name="developer" [(ngModel)]="game.developerId" required>
+           <select type="text" class="form-control" name="developer" [(ngModel)]="game.developerId" >
              <option *ngFor = "let developer of developers" [value] = "developer.id" >{{developer.developerName}}</option>
            </select>
         </div>
