@@ -189,14 +189,14 @@ Adminként plusz két funkcióval bővül a fejléc. Az Add game menüpontban tu
 
 A Store oldalon lehetőség van játékokra nevük szerint keresni, ez részszavak esetén is működik. Lehet ár szerint filterezni a játékokat. Illetve lehet kategória és platform szerint is szűkiteni. Erre az Advanced search-re kell kattintani.
 
-A játékokat kártyáján látszódik a játék képe, ára, neve, fejlesztője és kategóriája. Illetve alul alapérezlemezeten egy gomb van ezzel lehet a kosárba rakni a terméket, ahányszor rányom a felhasználó annyi mennyiség kerül a kosárba. Adminként megjelenik egy Delete gomb is amivel a játékot ki lehet törölni az adatbázisból.
+A játékokat kártyáján látszódik a játék képe, ára, neve, fejlesztője és kategóriája. Illetve alul alapéretelmezeten egy gomb van, ezzel lehet a kosárba rakni a terméket, ahányszor rányom a felhasználó annyi mennyiség kerül a kosárba. Adminként megjelenik egy Delete gomb is amivel a játékot ki lehet törölni az adatbázisból.
 
 ##Basket oldal
-Itt ha nem rakott a felhasználó a kosarába még semmit egy üzenet és egy gomb fogadja, amivel visszatud navigálni a store-ba.
+Itt ha nem rakott a felhasználó a kosarába még semmit egy üzenet és egy gomb fogadja, amivel visszatudd navigálni a store-ba.
 
-Ha vannak a kosarába termékek akko azokat itt felsolva látja a mennyiségével együtt amit növelni és csökkenteni tudd a megfelelő gombokkal. Illet törölni is tudja azokat.
+Ha vannak a kosarába termékek akkor azokat itt felsolva látja a mennyiségével együtt amit növelni és csökkenteni tudd a megfelelő gombokkal. Illet törölni is tudja azokat.
 
-Ha kártyával kíván fizetni azt be tudja jelölni itt, és megtudja redelni a termékeket. 
+Ha kártyával kíván fizetni azt be tudja jelölni itt, és megtudja redelni a termékeket a gombra kattintva. 
 
 ## Frontend könyvtárstruktúra
 ![Frontend](docs/pictures/dir_frontend.JPG)
@@ -240,3 +240,19 @@ A modellek megegyeznek a backendbe lévőekkel
 - User
 
 ![Frontend](docs/pictures/user.JPG)
+
+##Egy funkció leírása - Kosárba helyezés
+A kosárba helyezésre kkatintva meghívódik a game.component.ts-ben a addGameToBasket() metódus. 
+Ez létrehozz egy basketitemet és meghívja a userservice adgametocart metódusát.
+Ez a metódús a writeCartToDataBase metóduson keresztül subscriebol az addCart-ra ami végül POST kéréssel elküldi a backendnek az adatot, és így bekerül a kosárba
+
+##Kapcsolat a szerverrel
+A szerver-kliens kapcsolatot kizárólag a servicek végzik. Ezek kezelik a megfelelő POST és GET kéréseket. A fennt felsorolt modellek nevei pontosan megegyeznek a backendben lévőekkel a megfelelő működés érdekében.
+
+## Alkalmazás tovább fejlesztése
+- Regisztráció nélkül is lehessen böngészni
+- Rendeléseink állapotát ellenőrízni
+- Minden játéknak külön adatlap
+- Admin oldalról kezelni a usereket
+- Admin oldalról kezelni a rendeléseket
+- Felhasználó saját adatait módosíthatja
